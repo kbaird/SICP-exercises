@@ -14,7 +14,8 @@ fun first_denomination(kinds) =
               | 2 => 5
               | 3 => 10
               | 4 => 25
-              | _ => 50; (* use _ wildcard instead of 5 to suppress non-exhaustive warning *)
+              | 5 => 50
+              | _ => 0;
 
 (*
   There is only one (empty) way to make change for no money at all.
