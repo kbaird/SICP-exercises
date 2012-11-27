@@ -4,7 +4,7 @@
  - SICP in Haskell
  -
  - Test applicative-order ("evaluate args and then apply")
- - vs. 
+ - vs.
  - normal-order ("fully expand and then reduce")
  - evaluation.
  -
@@ -20,8 +20,8 @@ testOrder x y
   | otherwise = sum y
 
 {-
- - Evaluating "testOrder 0 ones" in hugs will correctly 
- - return 0, while any other x argument value will force an 
+ - Evaluating "testOrder 0 ones" in hugs will correctly
+ - return 0, while any other x argument value will force an
  - attempted evaluation of the inifinite stream ('ones').
  -
  -}

@@ -6,11 +6,11 @@
 (define (cbrt x)
   (define (cbrt-iter guess x)
     (define (improve guess x)
-      (/ 
-        (+ 
+      (/
+        (+
           (/ x
-             (square guess)) 
-          (* 2 guess)) 
+             (square guess))
+          (* 2 guess))
         3))
     (define (average x y)
       (/ (+ x y) 2))

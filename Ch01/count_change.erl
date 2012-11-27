@@ -17,7 +17,7 @@ cc(Amount, _) when (Amount < 0) -> 0;
 
 % In all other cases...
 cc(Amount, Kinds_Of_Coins) ->
-  cc(Amount, Kinds_Of_Coins - 1) + 
+  cc(Amount, Kinds_Of_Coins - 1) +
   cc(Amount - first_denomination(Kinds_Of_Coins), Kinds_Of_Coins).
 
 % Define the coinage set as a hidden function.

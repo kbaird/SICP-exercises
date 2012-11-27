@@ -18,5 +18,5 @@ summed_pairs(Row_Num) ->
 summed_pairs_from_list([])    -> [];
 summed_pairs_from_list([X])   -> [X];
 summed_pairs_from_list([X,Y]) -> [X+Y];
-summed_pairs_from_list([X,Y,Tail]) -> 
+summed_pairs_from_list([X,Y,Tail]) ->
   [X+Y] ++ summed_pairs_from_list([Y,Tail]).

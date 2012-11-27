@@ -17,7 +17,7 @@ countChange amount = cc amount 5
       | amt == 0          = 1
       | amt <  0          = 0
       | kindsOfCoins == 0 = 0
-      | otherwise = (cc amt (kindsOfCoins-1)) + 
+      | otherwise = (cc amt (kindsOfCoins-1)) +
         (cc (amt-(firstDenomination kindsOfCoins)) kindsOfCoins)
         where
           firstDenomination 1 = 1

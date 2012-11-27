@@ -23,7 +23,7 @@ module Precision
     (self-1).f_iter(sum) +
       ((self-2).f_iter(sum) * 2) +
       ((self-3).f_iter(sum) * 3)
-    
+
   end
 
 end

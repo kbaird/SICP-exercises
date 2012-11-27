@@ -3,7 +3,7 @@
  - Kevin C. Baird
  - SICP in Haskell
  -
- - Write a function that takes 3 numbers as arguments and returns 
+ - Write a function that takes 3 numbers as arguments and returns
  - the sum of the squares of the 2largest arguments.
  -}
 

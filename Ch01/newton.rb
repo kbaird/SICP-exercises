@@ -16,7 +16,7 @@ module Precision
   def square()
     self ** 2
   end
-  
+
   def sqrt()
     sqrt_iter(1.0)
   end

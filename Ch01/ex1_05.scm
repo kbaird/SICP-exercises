@@ -2,7 +2,7 @@
 ;; Kevin C. Baird
 ;; SICP
 ;; Test applicative-order ("evaluate args and then apply")
-;; vs. 
+;; vs.
 ;; normal-order ("fully expand and then reduce")
 ;; evaluation.
 
@@ -16,6 +16,6 @@
 ; (test 0 (p)) to
 ; (if (= 0 0) 0 (p)), find that zero does equal zero, and return zero.
 ;
-; The applicative-order process that is really used keeps trying to 
-; convert p into (p), and does so endlessly, before ever expanding the 
+; The applicative-order process that is really used keeps trying to
+; convert p into (p), and does so endlessly, before ever expanding the
 ; definition of test.

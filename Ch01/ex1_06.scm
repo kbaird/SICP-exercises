@@ -25,6 +25,6 @@
 
 ; Trying to use sqrt results in a stack overflow.
 ; This is because the applicative-order keeps replacing
-; 'new-if' with its definition inside sqrt-iter. Since 
-; sqrt-iter is defined recursively, the replacement 
+; 'new-if' with its definition inside sqrt-iter. Since
+; sqrt-iter is defined recursively, the replacement
 ; process never terminates.

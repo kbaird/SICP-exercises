@@ -1,7 +1,7 @@
 ;; ex1_07.scm
 ;; Kevin C. Baird
 ;; SICP
-;; Redefine the tolerance to be a certain fraction of 
+;; Redefine the tolerance to be a certain fraction of
 ;; the guess, rather than a constant value.
 
 (define (sqrt x)

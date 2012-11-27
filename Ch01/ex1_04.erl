@@ -10,7 +10,7 @@ a_plus_abs_b(A, B) ->
   end,
   Op(A, B).
 
-% I normally prefer pattern matching and when clauses in Erlang over case statements, 
+% I normally prefer pattern matching and when clauses in Erlang over case statements,
 % but a case seemed the most straightforward way to do this particular task.
 
 % However, we can delegate to a hidden helper that uses pattern matching easily enough.

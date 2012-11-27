@@ -4,7 +4,7 @@
 =begin rdoc
 Kevin C. Baird
 SICP in Ruby
-Redefine the tolerance to be a certain fraction of the guess, 
+Redefine the tolerance to be a certain fraction of the guess,
 rather than a constant value.
 
 Idiomatic Ruby is to add a method to some number ancestor

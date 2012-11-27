@@ -14,11 +14,11 @@ module Precision
 
   def count_change(kinds_of_coins=5)
     # no way to make change under these conditions
-    return 0 if ((self < 0) or kinds_of_coins.zero?) 
-    
+    return 0 if ((self < 0) or kinds_of_coins.zero?)
+
     # only one way to count no money at all
-    return 1 if self.zero? 
-    
+    return 1 if self.zero?
+
     # otherwise proceed and recurse
     reduced_set_of_coins = self - FIRST_DENOMINATION[kinds_of_coins]
     count_change(kinds_of_coins-1) + reduced_set_of_coins.count_change(kinds_of_coins)

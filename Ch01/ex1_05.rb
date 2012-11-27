@@ -5,7 +5,7 @@
 Kevin C. Baird
 SICP in Ruby
 Test applicative-order ("evaluate args and then apply")
-vs. 
+vs.
 normal-order ("fully expand and then reduce")
 evaluation.
 =end

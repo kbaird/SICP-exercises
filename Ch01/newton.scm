@@ -19,5 +19,5 @@
       (sqrt-iter (improve guess))))
   (sqrt-iter 1.0))
 
-; Improved with block structure/lexical scoping 
+; Improved with block structure/lexical scoping
 ; as detailed in Section 1.1.8 (using free variables).

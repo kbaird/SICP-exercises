@@ -10,7 +10,7 @@ sum_squares_2_largest(A, B, C) ->
   SquaresL = lists:map(Square, ArgsL),
   lists:sum(SquaresL) - Square(Lowest).
 
-% squaring all three args and then subtracting the square (again) of the lowest 
-% is not the most computationally efficient way to do this, but I wanted to show 
-% that it was functionally equivalent to the usual approach of selecting just the 
+% squaring all three args and then subtracting the square (again) of the lowest
+% is not the most computationally efficient way to do this, but I wanted to show
+% that it was functionally equivalent to the usual approach of selecting just the
 % two highest and then squaring.

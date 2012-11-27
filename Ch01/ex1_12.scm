@@ -6,7 +6,7 @@
 (define (pascals-triangle row-num)
 
   (define (summed-pairs row-num)
-    
+
 
   (cond ((= row-num 0) ())
         ((= row-num 1) (1))
