@@ -1,6 +1,6 @@
 (*
 author:   "Kevin C. Baird"
-purpose:  "SICP in Erlang: Count the number of ways to make change"
+purpose:  "SICP in Standard ML: Count the number of ways to make change"
 *)
 
 (*
