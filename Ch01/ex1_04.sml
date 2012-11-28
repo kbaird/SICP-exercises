@@ -1,6 +1,8 @@
 (*
-author:   "Kevin C. Baird"
-purpose:  "SICP in Standard ML: Demonstrate an operator that is a compound procedure (i.e., not known at compile time)."
+Kevin C. Baird
+SICP in Standard ML:
+  Demonstrate an operator that is a compound procedure
+  (i.e., not known at compile time).
 *)
 
 local

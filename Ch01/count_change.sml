@@ -1,6 +1,7 @@
 (*
-author:   "Kevin C. Baird"
-purpose:  "SICP in Standard ML: Count the number of ways to make change"
+Kevin C. Baird
+SICP in Standard ML:
+  Count the number of ways to make change
 *)
 
 local
