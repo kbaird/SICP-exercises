@@ -4,6 +4,11 @@ purpose:  "SICP in Standard ML: Demonstrate an operator that is a compound proce
 *)
 
 fun a_plus_abs_b(a, b) =
-  case (b < 0) of
-      true => (fn(x, y)=>x-y)(a, b)
-    | _    => (fn(x, y)=>x+y)(a, b);
+  let
+    val add = fn(x, y)=>x+y
+    val sub = fn(x, y)=>x-y
+  in
+    case (b < 0) of
+        true => sub(a, b)
+      | _    => add(a, b)
+  end;
