@@ -11,8 +11,8 @@ local
       val sub = fn(x, y)=>x-y
     in
       case (b < 0) of
-          true => sub
-        | _    => add
+        true => sub
+      | _    => add
     end;
 
 in
