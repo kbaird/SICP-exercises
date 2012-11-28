@@ -18,13 +18,18 @@ local
   fun cc(0, _) = 1
     (* There is no way to make change when there are no coin types available. *)
     | cc(_, 0) = 0
-    | cc(amount, kinds_of_coins) =
+    | cc(amt, coin_types) =
     (* There is no way to make change for a negative amount of money. *)
-      if amount < 0 then 0
+      if amt < 0 then 0
                     else
                       (* In all other cases, recurse *)
-                      cc(amount, kinds_of_coins-1) +
-                      cc(amount - first_denomination(kinds_of_coins), kinds_of_coins);
+                      let
+                        val reduced_amt      = amt - first_denomination(coin_types)
+                        val reduced_results  = cc(reduced_amt, coin_types)
+                        val without_1st_coin = cc(amt, coin_types-1)
+                      in
+                        reduced_results + without_1st_coin
+                      end
 
 in
 
