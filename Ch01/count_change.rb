@@ -28,7 +28,7 @@ end
 
 if (__FILE__ == $0)
   require 'rubygems'
-  require 'spec'
+  require 'rspec'
   describe "Precision#count_change" do
     it "should return 1 when called on zero with no argument" do
       0.count_change.should == 1
