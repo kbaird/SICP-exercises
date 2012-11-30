@@ -6,10 +6,12 @@ SICP in Standard ML:
 *)
 
 fun sum_squares_2_largest(a, b, c) =
-    let fun sum_squares(a, b) = a*a + b*b
+    let
+        fun sum_squares([a, b]) = a*a + b*b
+          | sum_squares(_)      = 0;
+        val min = Int.min(a, Int.min(b, c));
+        val largest2 = List.filter (fn x=>x <> min) [a,b,c]
     in
-        if a <= b andalso a <= c then sum_squares(b, c) else
-        if b <= a andalso b <= c then sum_squares(a, c) else
-        sum_squares(a, b)
+        sum_squares(largest2)
     end
 
