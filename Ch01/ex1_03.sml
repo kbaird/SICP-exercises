@@ -8,7 +8,7 @@ SICP in Standard ML:
 fun sum_squares_2_largest(a, b, c) =
     let fun sum_squares([a, b]) = a*a + b*b
           | sum_squares(_)      = 0;
-        val min = Int.min(a, Int.min(b, c));
+        val min      = Int.min(a, Int.min(b, c));
         val not_min  = fn x=>x <> min;
         val largest2 = List.filter not_min [a,b,c]
     in
