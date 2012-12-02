@@ -12,8 +12,8 @@ fun sqrt(x) =
         fun tolerance(x)          = x * 0.001;
         fun good_enough(guess, x) = Real.abs(square(guess) - x) < tolerance(x);
         fun improve(guess, x)     = average(guess, x/guess);
-        fun sqrt_helper(guess, x) =
+        fun sqrt(guess, x) =
             if good_enough(guess, x) then guess
-                                     else sqrt_helper(improve(guess, x), x);
-    in  sqrt_helper(1.0, x) end
+                                     else sqrt(improve(guess, x), x);
+    in  sqrt(1.0, x) end
 
