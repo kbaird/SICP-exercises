@@ -9,7 +9,7 @@ Output Pascal's Triangle via a recursive process
 Idiomatic Ruby is to add a method to a number ancestor
 =end
 
-module Precision
+class Integer
 
   BASE = [1]
 
