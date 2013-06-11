@@ -4,7 +4,7 @@
 =begin rdoc
 Kevin C. Baird
 SICP in Ruby
-Define both a recursive and interative process for addition
+Define both a recursive and iterative process for addition
 
 Idiomatic Ruby is to add a method to some number ancestor
 =end

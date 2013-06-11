@@ -19,4 +19,4 @@
 ; (+ 1 8)
 ; (+ (dec 1) (inc 8))
 ; (+ 0 9)
-; 9, via an interative process
+; 9, via an iterative process

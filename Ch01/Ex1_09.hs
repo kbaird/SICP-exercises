@@ -3,7 +3,7 @@
  - Kevin C. Baird
  - SICP in Haskell
  -
- - Define both a recursive and interative process for addition
+ - Define both a recursive and iterative process for addition
  - (Exercise 1.9)
  -
  -}
