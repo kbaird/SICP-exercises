@@ -11,7 +11,21 @@ signature POINT = sig
     val make_point: real * real -> point
 end
 
-structure Point :> POINT = struct
+signature SEGMENT = sig
+    structure Point : POINT
+    type segment
+    val get_start:    segment -> Point.point
+    val get_end:      segment -> Point.point
+    val make_segment: Point.point * Point.point -> segment
+end
+
+signature GEOMETRY = sig
+    structure Point   : POINT
+    structure Segment : SEGMENT
+    sharing Point = Segment.Point
+end
+
+structure Point : POINT = struct
     type point = real list
 
     fun get_x(point) = List.hd(point);
@@ -20,22 +34,10 @@ structure Point :> POINT = struct
     fun make_point(x, y) = [x, y] : point;
 end
 
-signature SEGMENT = sig
-    structure Point : POINT
-    type point = Point.point
-    type segment
-    val get_start:    segment -> point
-    val get_end:      segment -> point
-    val make_segment: point * point -> segment
-end
-
-functor Segment (Point:POINT) :> SEGMENT = struct
-    structure Point    = Point;
-    (*
-    sharing type point = Point.point
-    *)
-    type point         = Point.point
-    type segment       = point list
+structure Segment : SEGMENT = struct
+    structure Point = Point
+    type point      = Point.point
+    type segment    = point list
 
     fun get_start(segment) = List.hd(segment);
     fun get_end(segment)   = List.hd(List.tl(segment));
@@ -43,9 +45,11 @@ functor Segment (Point:POINT) :> SEGMENT = struct
     fun make_segment(pt1, pt2) = [pt1, pt2] : segment;
 end
 
-structure Segment = Segment(Point);
+structure Geometry :> GEOMETRY = struct
+    structure Point   = Point
+    structure Segment = Segment
+end
+
 val p1 = Point.make_point(0.0,1.0);
 val p2 = Point.make_point(2.5,3.2);
-(*
 val s1 = Segment.make_segment(p1,p2);
-*)
