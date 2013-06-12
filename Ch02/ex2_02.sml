@@ -13,15 +13,11 @@ end
 
 structure Point :> POINT = struct
     type point = real list
-    exception E;
 
-    fun get_x(x::_) = x
-      | get_x(_)    = raise E;
+    fun get_x(point) = List.hd(point);
+    fun get_y(point) = List.hd(List.tl(point));
 
-    fun get_y(_::y::[]) = y
-      | get_y(_)        = raise E;
-
-    fun make_point(x, y) = [x, y];
+    fun make_point(x, y) = [x, y] : point;
 end
 
 signature SEGMENT = sig
@@ -40,18 +36,16 @@ functor Segment (Point:POINT) :> SEGMENT = struct
     *)
     type point         = Point.point
     type segment       = point list
-    exception E;
 
-    fun get_start(start_pt::_) = start_pt
-      | get_start(_)           = raise E;
+    fun get_start(segment) = List.hd(segment);
+    fun get_end(segment)   = List.hd(List.tl(segment));
 
-    fun get_end(_::end_pt::[]) = end_pt
-      | get_end(_)             = raise E;
-
-    fun make_segment(pt1, pt2) = [pt1, pt2];
+    fun make_segment(pt1, pt2) = [pt1, pt2] : segment;
 end
 
 structure Segment = Segment(Point);
 val p1 = Point.make_point(0.0,1.0);
 val p2 = Point.make_point(2.5,3.2);
+(*
 val s1 = Segment.make_segment(p1,p2);
+*)
