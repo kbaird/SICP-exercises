@@ -5,7 +5,7 @@
 
 % creators
 make_point(X, Y) -> {point, X, Y}.
-make_segment({point, X1, Y1}, {point, X2, Y2}) -> 
+make_segment({point, X1, Y1}, {point, X2, Y2}) ->
    {segment, {point, X1, Y1}, {point, X2, Y2}}.
 
 % extractors
