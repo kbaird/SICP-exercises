@@ -19,12 +19,6 @@ signature SEGMENT = sig
     val make_segment: Point.point * Point.point -> segment
 end
 
-signature GEOMETRY = sig
-    structure Point   : POINT
-    structure Segment : SEGMENT
-    sharing Point = Segment.Point
-end
-
 structure Point : POINT = struct
     type point = real list
 
@@ -36,18 +30,12 @@ end
 
 structure Segment : SEGMENT = struct
     structure Point = Point
-    type point      = Point.point
-    type segment    = point list
+    type segment    = Point.point list
 
     fun get_start(segment) = List.hd(segment);
     fun get_end(segment)   = List.hd(List.tl(segment));
 
     fun make_segment(pt1, pt2) = [pt1, pt2] : segment;
-end
-
-structure Geometry :> GEOMETRY = struct
-    structure Point   = Point
-    structure Segment = Segment
 end
 
 val p1 = Point.make_point(0.0,1.0);
