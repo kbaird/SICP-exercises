@@ -1,2 +1,4 @@
-Ch*/*.beam
-Ch*/*.ps
+*.beam
+*.hi
+*.o
+*.ps
