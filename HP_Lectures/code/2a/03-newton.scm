@@ -36,7 +36,7 @@
 
 (define deriv
   (lambda (f)
-    (lambda (x) 
+    (lambda (x)
       ; just define an arbitrary low value for dx
       (define dx .000001)
       (/ (- (f (+ x dx))

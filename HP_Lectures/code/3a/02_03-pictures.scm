@@ -5,8 +5,8 @@
 
 ; assume I have a make-rect constructor and
 ; [horiz, vert, origin] selectors
-; where 
-;   origin is the lower left vertex, 
+; where
+;   origin is the lower left vertex,
 ;   horiz is the horizontal distance to the next vertex, and
 ;   vert is the vertical distance to the next vertex
 
@@ -20,11 +20,11 @@
                     (vert rect)))
       (origin rect))))
 
-; make-picture returns a procedure that draws a picture 
+; make-picture returns a procedure that draws a picture
 ; to be scaled across a given rectangle
 (define (make-picture seglist)
   (lambda (rect)
-          (for-each 
+          (for-each
             (lambda (s)
               (drawline
                 ((coord-map rect) (seg-start s))
@@ -68,7 +68,7 @@
         (origin rect)
         (scale a (horiz rect))
         (vert rect)))
-    (define p2-rect 
+    (define p2-rect
       (make-rect
         (+vect (origin rect)
                (scale a (horiz rect)))
@@ -91,7 +91,7 @@
             (scale -1 (horiz rect))))))
 
 (define (right-push-orig pict distance scale-factor)
-  (if (= distance 0) 
+  (if (= distance 0)
     pict
     (beside pict (right-push pict
                              (- distance 1)

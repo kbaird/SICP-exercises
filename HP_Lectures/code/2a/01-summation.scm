@@ -13,7 +13,7 @@
 (define (sum-int-orig a b)
   (if (< a b)
     0
-    (+ a 
+    (+ a
        (sum-int-orig (+ a 1) b))))
 
 ;; sum of squares, almost identical
@@ -58,7 +58,7 @@
 (define (sum-pi-internal-definitions a b)
   (define (each-addend x)
     (+ (/ 1 (* x (+ x 2)))))
-  (define (4+ x) 
+  (define (4+ x)
     (make-inc-by 4))
   (sum each-addend a 4+ b))
 

@@ -18,8 +18,8 @@
     (try (improve y))))
   (try 1))
 
-;; Tries to find the fixed-point of the sqrt function - 
-;; that value which when passed into a given function 
+;; Tries to find the fixed-point of the sqrt function -
+;; that value which when passed into a given function
 ;; results in itself out.
 
 (define (sqrt-fp1 x)

@@ -38,13 +38,13 @@
         (dd (: x) (: v)))             )
     ))
 
-(define algebra-rules 
+(define algebra-rules
   `(
     ; if just an operation on two simple expressions, do it
     ( ((? op) (?c e1) (?c e2))
      (: (op e1 e2))            )
 
-    ; if the 2nd expression is constant, switch places so the 
+    ; if the 2nd expression is constant, switch places so the
     ; constant is first (will have bug for division)
     ( ((?op) (? e1) (?c e2))
      ((: op) (: e2) (: e1))    )
@@ -61,7 +61,7 @@
     ; nested mults: pull e2 forward for re-evaluation
     ( (* (? e1) (* (? e2) (? e3)))
      (* (: e2) (* (: e1) (: e3)))          )
-    
+
     ( (+ (* (? c) (? a)) (* (?c d) (? a)))
      (* (: (* c d)) (: a))                 )
 
@@ -82,7 +82,7 @@
 ;; MATCHER takes an expression, pattern, and dictionary, returning a modified dictionary
 
 (define (match pat exp dict)
-  (cond 
+  (cond
     ; a failed dict coming in can't be "unfailed"
     ((eq? dict `failed) `failed)
 
@@ -96,7 +96,7 @@
          `failed)
        ; failed match if exp is not atomic
        `failed))
-    
+
     ;; PATTERN EXPRESSIONS
     ((arbitrary-constant? pat)
      (if (constant? exp)
@@ -108,7 +108,7 @@
        `failed))
     ((arbitrary-expression? pat)
      (extend-dict pat exp dict))
-    
+
     ; if the expression is atomic but the pattern isn't, they can't match
     ((atom? exp) `failed)
 
@@ -118,7 +118,7 @@
       (match (cdr pat)
              (cdr exp)
       ; "sub-dict" is the dict resulting from trying to match the cars
-             (match 
+             (match
                (car pat)
                (car exp)
                dict)))))
@@ -147,7 +147,7 @@
 ;;; LECTURE 3 - Simplifier
 
 (define (simplifier the-rules)
-  
+
   ;(define (simplify-exp-orig exp)
   ;  (try-rules (if (compound? exp)
   ;               (simplify-parts exp)
@@ -158,7 +158,7 @@
   ;    `()
   ;    (cons (simplify-exp (car exp))
   ;          (simplify-parts (cdr exp)))))
-  
+
 
   ; Alternate version of simplify-exp that uses map
   ; (and therefore doesn't need simplify-parts)
@@ -167,9 +167,9 @@
       (if (compound? exp)
         (map simplify-exp exp)
         exp)))
-  
+
   (define (try-rules exp)
-    
+
     (define (scan rules)
       (if (null? rules)
         exp
@@ -185,7 +185,7 @@
                 dict))))))
 
     (scan the-rules))
-  
+
   simplify-exp)
 
 ; Alternate version of simplify-exp that uses map

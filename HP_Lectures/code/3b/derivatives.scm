@@ -5,7 +5,7 @@
 (define (deriv expr var)
   (cond ((constant? expr var) 0)
         ((same-var? expr var) 1)
-        ((sum? expr) 
+        ((sum? expr)
          (make-sum (deriv (a1 expr) var)
                    (deriv (a2 expr) var)))
         ((product? expr)
