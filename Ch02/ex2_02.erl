@@ -9,8 +9,8 @@ make_segment({point, X1, Y1}, {point, X2, Y2}) ->
    {segment, {point, X1, Y1}, {point, X2, Y2}}.
 
 % extractors
-get_x({point, X, _}) -> X.
-get_y({point, _, Y}) -> Y.
-get_start({segment, {point, X, Y}, {point, _, _}}) -> {point, X, Y}.
-get_end(  {segment, {point, _, _}, {point, X, Y}}) -> {point, X, Y}.
+x_point({point, X, _}) -> X.
+y_point({point, _, Y}) -> Y.
+start_segment({segment, {point, X, Y}, {point, _, _}}) -> {point, X, Y}.
+end_segment(  {segment, {point, _, _}, {point, X, Y}}) -> {point, X, Y}.
 

@@ -17,12 +17,12 @@ toPoint (x, y) = MakePoint (x, y)
 fromPoint :: Point -> (Float, Float)
 fromPoint (MakePoint (x, y)) = (x, y)
 
-getX :: Point -> Float
-getX p = x
+xPoint :: Point -> Float
+xPoint p = x
   where (x, _) = fromPoint p
 
-getY :: Point -> Float
-getY p = y
+yPoint :: Point -> Float
+yPoint p = y
   where (_, y) = fromPoint p
 
 newtype Segment = MakeSegment (Point, Point)
@@ -33,11 +33,11 @@ toSegment (start, end) = MakeSegment (start, end)
 fromSegment :: Segment -> (Point, Point)
 fromSegment (MakeSegment (start, end)) = (start, end)
 
-getStart :: Segment -> Point
-getStart s = start
+startSegment :: Segment -> Point
+startSegment s = start
   where (start, _) = fromSegment s
 
-getEnd :: Segment -> Point
-getEnd s = end
+endSegment :: Segment -> Point
+endSegment s = end
   where (_, end)   = fromSegment s
 
