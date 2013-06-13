@@ -6,14 +6,10 @@
 % Assume US coinage (five types of coins), and call hidden cc() function.
 count_change(Amount) -> cc(Amount, 5).
 
-% There is only one (empty) way to make change for no money at all.
-cc(0, _) -> 1;
+cc(0, _) -> 1; % There is only one (empty) way to make change for no money at all.
+cc(_, 0) -> 0; % There is no way to make change when there are no coin types available.
 
-% There is no way to make change when there are no coin types available.
-cc(_, 0) -> 0;
-
-% There is no way to make change for a negative amount of money.
-cc(Amount, _) when (Amount < 0) -> 0;
+cc(Amount, _) when (Amount < 0) -> 0; % There is no way to make change for a negative amount of money.
 
 % In all other cases...
 cc(Amount, Kinds_Of_Coins) ->
