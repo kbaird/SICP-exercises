@@ -51,7 +51,7 @@ structure Segment : SEGMENT = struct
     fun make_segment(pt1, pt2) = [pt1, pt2] : segment;
 end
 
-val p1 = Point.make_point(0.0,1.0);
-val p2 = Point.make_point(2.5,3.2);
-val s1 = Segment.make_segment(p1,p2);
+val p1    = Point.make_point(0.0,1.0);
+val p2    = Point.make_point(2.5,3.2);
+val s1    = Segment.make_segment(p1,p2);
 val midpt = Segment.midpoint_segment(s1);
