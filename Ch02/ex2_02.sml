@@ -31,11 +31,11 @@ end
 
 structure Segment : SEGMENT = struct
     structure Point = Point
-    type segment    = Point.point list
+    type segment    = Point.point * Point.point
 
-    fun start_pt(segment) = List.hd(segment);
-    fun end_pt(segment)   = List.hd(List.tl(segment));
-    fun mid_pt(segment)   =
+    fun start_pt(s, _)  = s;
+    fun end_pt(_,   e)  = e;
+    fun mid_pt(segment) =
         let
             fun avg(x, y) = (x + y) / 2.0;
             val start_x   = Point.x(start_pt(segment));
@@ -48,7 +48,7 @@ structure Segment : SEGMENT = struct
             Point.make(mid_x, mid_y)
         end
 
-    fun make(pt1, pt2) = [pt1, pt2] : segment;
+    fun make(pt1, pt2) = (pt1, pt2) : segment;
 end
 
 val p1 = Point.make(0.0,1.0);
