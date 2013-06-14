@@ -7,15 +7,15 @@ SICP in Standard ML:
 
 fun sqrt(x) =
     let
-        fun average(x, y)        = (x + y) / 2.0;
-        fun square(x)            = x * x;
-        fun tolerance(x)         = x * 0.001;
-        fun goodEnough(guess, x) = Real.abs(square(guess) - x) < tolerance(x);
-        fun improve(guess, x)    = average(guess, x/guess);
+        fun average(x, y)        = (x + y) / 2.0
+        fun square(x)            = x * x
+        fun tolerance(x)         = x * 0.001
+        fun goodEnough(guess, x) = Real.abs(square(guess) - x) < tolerance(x)
+        fun improve(guess, x)    = average(guess, x/guess)
         fun sqrt(guess, x) =
             case goodEnough(guess, x) of
                 true => guess
-                 | _ => sqrt(improve(guess, x), x);
+                 | _ => sqrt(improve(guess, x), x)
     in  sqrt(1.0, x)
     end
 

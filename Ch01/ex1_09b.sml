@@ -6,8 +6,8 @@ SICP in Standard ML:
 
 fun add(a, b) =
     let
-        fun inc(x) = x + 1;
-        fun dec(x) = x - 1;
+        fun inc(x) = x + 1
+        fun dec(x) = x - 1
     in
         case a of 0 => b
                 | _ => add(dec(a), inc(b))

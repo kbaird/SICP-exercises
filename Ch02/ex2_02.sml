@@ -23,34 +23,34 @@ end
 structure Point : POINT = struct
     type point = real * real
 
-    fun x(x, _) = x;
-    fun y(_, y) = y;
+    fun x(x, _) = x
+    fun y(_, y) = y
 
-    fun make(x, y) = (x, y) : point;
+    fun make(x, y) = (x, y) : point
 end
 
 structure Segment : SEGMENT = struct
     structure Point = Point
     type segment    = Point.point * Point.point
 
-    fun startPoint(s, _)  = s;
-    fun endPoint(_,   e)  = e;
+    fun startPoint(s, _)  = s
+    fun endPoint(_,   e)  = e
     fun midPoint(segment) =
         let
-            fun avg(x, y) = (x + y) / 2.0;
-            val startX    = Point.x(startPoint(segment));
-            val startY    = Point.y(startPoint(segment));
-            val endX      = Point.x(endPoint(segment));
-            val endY      = Point.y(endPoint(segment));
-            val midX      = avg(startX, endX);
+            fun avg(x, y) = (x + y) / 2.0
+            val startX    = Point.x(startPoint(segment))
+            val startY    = Point.y(startPoint(segment))
+            val endX      = Point.x(endPoint(segment))
+            val endY      = Point.y(endPoint(segment))
+            val midX      = avg(startX, endX)
             val midY      = avg(startY, endY)
         in  Point.make(midX, midY)
         end
 
-    fun make(pt1, pt2) = (pt1, pt2) : segment;
+    fun make(pt1, pt2) = (pt1, pt2) : segment
 end
 
-val p1 = Point.make(0.0,1.0);
-val p2 = Point.make(2.5,3.2);
-val s1 = Segment.make(p1,p2);
-val p3 = Segment.midPoint(s1);
+val p1 = Point.make(0.0,1.0)
+val p2 = Point.make(2.5,3.2)
+val s1 = Segment.make(p1,p2)
+val p3 = Segment.midPoint(s1)
