@@ -28,4 +28,5 @@ fun count_change amount =
                     reduced_results + without_1st_coin
                 end
 
-    in cc(amount, 5) end
+    in  cc(amount, 5)
+    end

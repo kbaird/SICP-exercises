@@ -17,7 +17,6 @@ fun f_iter(n) =
                      else f_iter((n - 1), sum) +
                          (f_iter((n - 2), sum) * 2) +
                          (f_iter((n - 3), sum) * 3)
-    in
-        f_iter(n, 0)
+    in  f_iter(n, 0)
     end
 

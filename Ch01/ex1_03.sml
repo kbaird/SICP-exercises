@@ -11,7 +11,6 @@ fun sum_squares_2_largest(a, b, c) =
         val min      = Int.min(a, Int.min(b, c));
         val not_min  = fn x=>x <> min;
         val largest2 = List.filter not_min [a,b,c]
-    in
-        sum_squares(largest2)
+    in  sum_squares(largest2)
     end
 

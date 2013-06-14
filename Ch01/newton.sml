@@ -14,7 +14,6 @@ fun sqrt(x) =
         fun sqrt(guess, x) =
             if good_enough(guess, x) then guess
                                      else sqrt(improve(guess, x), x)
-    in
-        sqrt(1.0, x)
+    in  sqrt(1.0, x)
     end
 

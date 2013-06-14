@@ -44,8 +44,7 @@ structure Segment : SEGMENT = struct
             val end_y     = Point.y(end_pt(segment));
             val mid_x     = avg(start_x, end_x);
             val mid_y     = avg(start_y, end_y)
-        in
-            Point.make(mid_x, mid_y)
+        in  Point.make(mid_x, mid_y)
         end
 
     fun make(pt1, pt2) = (pt1, pt2) : segment;

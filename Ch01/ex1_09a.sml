@@ -10,7 +10,8 @@ fun add(a, b) =
         fun dec(x) = x - 1;
     in
         if a = 0 then b
-                 else inc(add(dec(a), b)) end
+                 else inc(add(dec(a), b))
+    end
 
 (*
     Follow the substitution model for add(4, 5)

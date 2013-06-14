@@ -14,5 +14,6 @@ fun cbrt(x) =
         fun cbrt(guess, x) =
             if good_enough(guess, x) then guess
                                      else cbrt(improve(guess, x), x);
-    in  cbrt(1.0, x) end
+    in  cbrt(1.0, x)
+    end
 
