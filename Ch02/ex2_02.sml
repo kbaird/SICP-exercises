@@ -21,12 +21,12 @@ signature SEGMENT = sig
 end
 
 structure Point : POINT = struct
-    type point = real list
+    type point = real * real
 
-    fun x(point) = List.hd(point);
-    fun y(point) = List.hd(List.tl(point));
+    fun x(x, _) = x;
+    fun y(_, y) = y;
 
-    fun make(x, y) = [x, y] : point;
+    fun make(x, y) = (x, y) : point;
 end
 
 structure Segment : SEGMENT = struct
