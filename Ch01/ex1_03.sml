@@ -5,12 +5,12 @@ SICP in Standard ML:
   the sum of the squares of the 2 largest arguments.
 *)
 
-fun sum_squares_2_largest(a, b, c) =
-    let fun sum_squares([a, b]) = a*a + b*b
-          | sum_squares(_)      = 0;
+fun sumSquaresTwoLargest(a, b, c) =
+    let fun sumSquares([a, b]) = a*a + b*b
+          | sumSquares(_)      = 0;
         val min      = Int.min(a, Int.min(b, c));
-        val not_min  = fn x=>x <> min;
-        val largest2 = List.filter not_min [a,b,c]
-    in  sum_squares(largest2)
+        val notMin   = fn x=>x <> min;
+        val largest2 = List.filter notMin [a,b,c]
+    in  sumSquares(largest2)
     end
 

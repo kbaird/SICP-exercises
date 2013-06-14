@@ -4,19 +4,19 @@ SICP in Standard ML:
     Exercise 1.11 - define both recursive and iterative processes
 *)
 
-fun f_rec(n) =
+fun fRec(n) =
     if n < 3 then n
-             else f_rec(n - 1) +
-                 (f_rec(n - 2) * 2) +
-                 (f_rec(n - 3) * 3)
+             else fRec(n - 1) +
+                 (fRec(n - 2) * 2) +
+                 (fRec(n - 3) * 3)
 
-fun f_iter(n) =
+fun fIter(n) =
     let
-        fun f_iter(n, sum) =
+        fun fIter(n, sum) =
             if n < 3 then n + sum
-                     else f_iter((n - 1), sum) +
-                         (f_iter((n - 2), sum) * 2) +
-                         (f_iter((n - 3), sum) * 3)
-    in  f_iter(n, 0)
+                     else fIter((n - 1), sum) +
+                         (fIter((n - 2), sum) * 2) +
+                         (fIter((n - 3), sum) * 3)
+    in  fIter(n, 0)
     end
 
