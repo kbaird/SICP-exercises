@@ -18,14 +18,13 @@ fun countChange amount =
         fun countChange(0, _) = 1 (* There is only one (empty) way to make change for no money at all. *)
           | countChange(_, 0) = 0 (* There is no way to make change when there are no coin types available. *)
           | countChange(amt, coinTypes) =
-            if amt < 0  then 0  (* There is no way to make change for a negative amount of money. *)
-                        else    (* In all other cases, recurse *)
+            case amt < 0 of true => 0 (* There is no way to make change for a negative amount of money. *)
+                             | _ =>   (* In all other cases, recurse *)
                 let
                     val reducedAmt       = amt - firstDenomination(coinTypes)
                     val reducedResults   = countChange(reducedAmt, coinTypes)
                     val withoutFirstCoin = countChange(amt, coinTypes-1)
-                in
-                    reducedResults + withoutFirstCoin
+                in  reducedResults + withoutFirstCoin
                 end
 
     in  countChange(amount, 5)

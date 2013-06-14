@@ -12,8 +12,9 @@ fun cbrt(x) =
         fun goodEnough(guess, x) = (Real.abs(cube(guess) - x) < tolerance);
         fun improve(guess, x)    = (x / (square(guess)) + (2.0 * guess)) / 3.0;
         fun cbrt(guess, x) =
-            if goodEnough(guess, x) then guess
-                                    else cbrt(improve(guess, x), x);
+            case goodEnough(guess, x) of
+                true => guess
+                 | _ => cbrt(improve(guess, x), x);
     in  cbrt(1.0, x)
     end
 

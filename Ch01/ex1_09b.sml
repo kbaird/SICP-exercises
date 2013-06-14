@@ -9,8 +9,8 @@ fun add(a, b) =
         fun inc(x) = x + 1;
         fun dec(x) = x - 1;
     in
-        if a = 0 then b
-                 else add(dec(a), inc(b))
+        case a of 0 => b
+                | _ => add(dec(a), inc(b))
     end
 
 (*
