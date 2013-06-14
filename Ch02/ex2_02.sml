@@ -37,13 +37,13 @@ structure Segment : SEGMENT = struct
     fun end_segment(segment)      = List.hd(List.tl(segment));
     fun midpoint_segment(segment) =
         let
-            fun average(x, y) = (x + y) / 2.0;
-            val start_x = Point.x_point(start_segment(segment));
-            val start_y = Point.y_point(start_segment(segment));
-            val end_x = Point.x_point(end_segment(segment));
-            val end_y = Point.y_point(end_segment(segment));
-            val mid_x = average(start_x, end_x);
-            val mid_y = average(start_y, end_y)
+            fun avg(x, y) = (x + y) / 2.0;
+            val start_x   = Point.x_point(start_segment(segment));
+            val start_y   = Point.y_point(start_segment(segment));
+            val end_x     = Point.x_point(end_segment(segment));
+            val end_y     = Point.y_point(end_segment(segment));
+            val mid_x     = avg(start_x, end_x);
+            val mid_y     = avg(start_y, end_y)
         in
             Point.make_point(mid_x, mid_y)
         end
