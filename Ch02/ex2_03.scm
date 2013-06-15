@@ -30,8 +30,8 @@
      (side-length (lr rect) (ll rect))
      (side-length (ll rect) (ul rect))))
 
-(define ul-pt (make-point 3 0))
-(define ur-pt (make-point 3 -4))
-(define ll-pt (make-point 0 0))
-(define lr-pt (make-point 0 -4))
+(define ul-pt (make-point 0 0))
+(define ur-pt (make-point 3 0))
+(define ll-pt (make-point 0 -4))
+(define lr-pt (make-point 3 -4))
 (define rect1 (make-rectangle ul-pt ur-pt ll-pt lr-pt))
