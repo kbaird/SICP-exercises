@@ -7,8 +7,7 @@ SICP in Standard ML:
 use "ex2_02.sml";
 
 signature RECTANGLE = sig
-    structure Point   : POINT
-    structure Segment : SEGMENT
+    structure Point : POINT
     type rectangle
     val upperLeft:  rectangle -> Point.point
     val upperRight: rectangle -> Point.point
@@ -20,8 +19,7 @@ signature RECTANGLE = sig
 end
 
 structure Rectangle : RECTANGLE = struct
-    structure Point   = Point
-    structure Segment = Segment
+    structure Point = Point
     type rectangle  = Point.point * Point.point * Point.point * Point.point
 
     fun upperLeft (ul, _, _, _)   = ul
