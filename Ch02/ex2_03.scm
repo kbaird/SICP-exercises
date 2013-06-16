@@ -16,7 +16,8 @@
 (define (distance pt1 pt2)
   (define x-diff (- (x-point pt2) (x-point pt1)))
   (define y-diff (- (y-point pt2) (y-point pt1)))
-  (sqrt (+ (* x-diff x-diff) (* y-diff y-diff))))
+  (define (square x) (* x x))
+  (sqrt (+ (square x-diff) (square y-diff))))
 
 (define (area rect)
   (* (distance (ul rect) (ur rect))
