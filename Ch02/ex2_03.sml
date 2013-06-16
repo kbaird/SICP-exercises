@@ -14,10 +14,8 @@ signature RECTANGLE = sig
     val upperRight: rectangle -> Point.point
     val lowerLeft:  rectangle -> Point.point
     val lowerRight: rectangle -> Point.point
-    (*
     val perimeter:  rectangle -> real
     val area:       rectangle -> real
-    *)
     val make:       Point.point * Point.point * Point.point * Point.point -> rectangle
 end
 
@@ -30,21 +28,24 @@ structure Rectangle : RECTANGLE = struct
     fun upperRight(_, ur, _, _)   = ur
     fun lowerLeft (_, _, ll, _)   = ll
     fun lowerRight(_, _, _, lr)   = lr
-    (*
     fun perimeter(ul, ur, ll, lr) =
-        let xDiff(pt1, pt2) = pt2.x - pt1.x
-        let yDiff(pt1, pt2) = pt2.y - pt1.y
-        let square(x)       = x * x
-        let distance(pt1, pt2) =
-            Math.sqrt(square(xDiff) + square(yDiff))
-        in  (distance(ul, ur) + distance(ur, lr)) * 2
+        let
+        fun xDiff(pt1, pt2)    = (Point.x(pt2) - Point.x(pt1)):real
+        fun yDiff(pt1, pt2)    = (Point.y(pt2) - Point.y(pt1)):real
+        fun square(x)          = x * x
+        fun distance(pt1, pt2) =
+            Math.sqrt(square(xDiff(pt1,pt2)) + square(yDiff(pt1, pt2)))
+        in  (distance(ul, ur) + distance(ur, lr)) * 2.0
         end
     fun area(ul, ur, ll, lr) =
-        let distance(pt1, pt2) =
-            ((pt2.x - pt1.x) ** 2 + (pt2.y - pt1.y) ** 2) ** 0.5
-        in  distance(ul, ur) * distance(ur, lr)
+        let
+        fun xDiff(pt1, pt2)    = (Point.x(pt2) - Point.x(pt1)):real
+        fun yDiff(pt1, pt2)    = (Point.y(pt2) - Point.y(pt1)):real
+        fun square(x)          = x * x
+        fun distance(pt1, pt2) =
+            Math.sqrt(square(xDiff(pt1,pt2)) + square(yDiff(pt1, pt2)))
+        in  (distance(ul, ur) * distance(ur, lr))
         end
-*)
 
     fun make(ul, ur, ll, lr) = (ul, ur, ll, lr) : rectangle
 end
@@ -54,7 +55,5 @@ val ur_pt = Point.make(3.0, 0.0)
 val ll_pt = Point.make(0.0, 4.0)
 val lr_pt = Point.make(3.0, 4.0)
 val rect1 = Rectangle.make(ul_pt, ur_pt, ll_pt, lr_pt)
-(*
 val p     = Rectangle.perimeter(rect1)
 val a     = Rectangle.area(rect1)
-*)
