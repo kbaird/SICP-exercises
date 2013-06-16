@@ -13,22 +13,20 @@
 (define (ll rect) (caddr  rect))
 (define (lr rect) (cadddr rect))
 
-(define (side-length pt1 pt2)
-  (define x-distance
-    (abs (- (x-point pt1) (x-point pt2))))
-  (define y-distance
-    (abs (- (y-point pt1) (y-point pt2))))
-  (+ x-distance y-distance))
+(define (distance pt1 pt2)
+  (define x-diff (- (x-point pt2) (x-point pt1)))
+  (define y-diff (- (y-point pt2) (y-point pt1)))
+  (sqrt (+ (* x-diff x-diff) (* y-diff y-diff))))
 
 (define (area rect)
-  (* (side-length (ul rect) (ur rect))
-     (side-length (ur rect) (lr rect))))
+  (* (distance (ul rect) (ur rect))
+     (distance (ur rect) (lr rect))))
 
 (define (perimeter rect)
-  (+ (side-length (ul rect) (ur rect))
-     (side-length (ur rect) (lr rect))
-     (side-length (lr rect) (ll rect))
-     (side-length (ll rect) (ul rect))))
+  (+ (distance (ul rect) (ur rect))
+     (distance (ur rect) (lr rect))
+     (distance (lr rect) (ll rect))
+     (distance (ll rect) (ul rect))))
 
 (define ul-pt (make-point 0 0))
 (define ur-pt (make-point 3 0))

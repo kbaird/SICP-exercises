@@ -18,12 +18,12 @@ class Rectangle
   end
 
   def perimeter
-    pairs.map { |pt1,pt2| side_length(pt1,pt2) }.inject(&:+)
+    pairs.map { |pt1,pt2| distance(pt1,pt2) }.inject(&:+)
   end
 
   def area
-    side_length(@points_hash[:ul], @points_hash[:ur]) *
-    side_length(@points_hash[:ur], @points_hash[:lr])
+    distance(@points_hash[:ul], @points_hash[:ur]) *
+    distance(@points_hash[:ur], @points_hash[:lr])
   end
 
   private
@@ -36,8 +36,8 @@ class Rectangle
     SYMS.map { |k| @points_hash[k] }
   end
 
-  def side_length(pt1,pt2)
-    (pt1.x - pt2.x).abs + (pt1.y - pt2.y).abs
+  def distance(pt1, pt2)
+    ((pt2.x - pt1.x) ** 2 + (pt2.y - pt1.y) ** 2) ** 0.5
   end
 end
 
