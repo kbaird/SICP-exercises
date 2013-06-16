@@ -34,3 +34,5 @@
 (define ll-pt (make-point 0 -4))
 (define lr-pt (make-point 3 -4))
 (define rect1 (make-rectangle ul-pt ur-pt ll-pt lr-pt))
+(define p (perimeter rect1))
+(define a (area rect1))
