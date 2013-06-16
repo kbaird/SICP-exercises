@@ -24,10 +24,8 @@
      (distance (ur rect) (lr rect))))
 
 (define (perimeter rect)
-  (+ (distance (ul rect) (ur rect))
-     (distance (ur rect) (lr rect))
-     (distance (lr rect) (ll rect))
-     (distance (ll rect) (ul rect))))
+  (* 2 (+ (distance (ul rect) (ur rect))
+          (distance (ll rect) (ul rect)))))
 
 (define ul-pt (make-point 0 0))
 (define ur-pt (make-point 3 0))
