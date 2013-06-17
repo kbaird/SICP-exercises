@@ -7,7 +7,7 @@
  -
  -}
 
-module Ex2_2 where
+module Ex2_02 where
 
 newtype Point = MakePoint (Float, Float)
 
