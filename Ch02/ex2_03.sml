@@ -15,7 +15,8 @@ signature RECTANGLE = sig
     val lowerRight: rectangle -> Point.point
     val perimeter:  rectangle -> real
     val area:       rectangle -> real
-    val make':      {ul:Point.point, ur:Point.point, ll:Point.point, lr:Point.point} -> rectangle
+    val make':    { ul:Point.point, ur:Point.point,
+                    ll:Point.point, lr:Point.point } -> rectangle
 end
 
 structure Rectangle : RECTANGLE = struct
@@ -48,10 +49,10 @@ structure Rectangle : RECTANGLE = struct
     fun make' {ul=ul, ur=ur, ll=ll, lr=lr} = (ul, ur, ll, lr) : rectangle
 end
 
-val ul_pt = Point.make(0.0, 0.0)
-val ur_pt = Point.make(3.0, 0.0)
-val ll_pt = Point.make(0.0, 4.0)
-val lr_pt = Point.make(3.0, 4.0)
+val ul_pt = Point.make' {x=0.0, y=0.0}
+val ur_pt = Point.make' {x=3.0, y=0.0}
+val ll_pt = Point.make' {x=0.0, y=4.0}
+val lr_pt = Point.make' {x=3.0, y=4.0}
 val rect1 = Rectangle.make' {ul=ul_pt, ur=ur_pt, ll=ll_pt, lr=lr_pt}
 val p     = Rectangle.perimeter(rect1)
 val a     = Rectangle.area(rect1)

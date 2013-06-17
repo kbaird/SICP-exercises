@@ -6,9 +6,9 @@ SICP in Standard ML:
 
 signature POINT = sig
     type point
-    val x:    point -> real
-    val y:    point -> real
-    val make: real * real -> point
+    val x:     point -> real
+    val y:     point -> real
+    val make': {x:real, y:real} -> point
 end
 
 signature SEGMENT = sig
@@ -26,7 +26,7 @@ structure Point : POINT = struct
     fun x(x, _) = x
     fun y(_, y) = y
 
-    fun make(x, y) = (x, y) : point
+    fun make' {x=x, y=y} = (x, y) : point
 end
 
 structure Segment : SEGMENT = struct
@@ -44,13 +44,13 @@ structure Segment : SEGMENT = struct
             val endY      = Point.y(endPoint(segment))
             val midX      = avg(startX, endX)
             val midY      = avg(startY, endY)
-        in  Point.make(midX, midY)
+        in  Point.make'   {x=midX, y=midY}
         end
 
     fun make(pt1, pt2) = (pt1, pt2) : segment
 end
 
-val p1 = Point.make(0.0,1.0)
-val p2 = Point.make(2.5,3.2)
+val p1 = Point.make' {x=0.0, y=1.0}
+val p2 = Point.make' {x=2.5, y=3.2}
 val s1 = Segment.make(p1,p2)
 val p3 = Segment.midPoint(s1)
