@@ -10,8 +10,8 @@ normal-order ("fully expand and then reduce")
 evaluation.
 =end
 
-RECIP = lambda { |x| 1.0/x }
-IDENT = lambda { |x| x     }
+RECIP = ->(x) { 1.0/x }
+IDENT = ->(x) { x     }
 
 def test_order(a, the_proc)
   return nil if a.zero?
