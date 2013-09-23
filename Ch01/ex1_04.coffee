@@ -10,10 +10,8 @@ aPlusAbsB = (a, b) ->
   op.apply null, [a, b]
 
 getOp = (b) ->
-  add = (x, y) -> x + y
-  return (add) if b > 0
-  subtract = (x, y) -> x - y
-  subtract
+  return ((x, y) -> x + y) if (b > 0)
+  (x, y) -> x - y
 
 console.log aPlusAbsB 0, -4
 console.log aPlusAbsB 0, 4
