@@ -12,7 +12,6 @@ countChange = (amount) ->
     return 1 if amt is 0        # There is only one (empty) way to make change for no money at all.
     return 0 if coinTypes is 0  # There is no way to make change when there are no coin types available.
     return 0 if (amt < 0)       # There is no way to make change for a negative amount of money.
-    #console.log "amt = #{amt}, coinTypes = #{coinTypes}"
 
     reducedAmt        = amt - firstDenomination[coinTypes]
     reducedResults    = innerCountChange(reducedAmt, coinTypes)
@@ -21,6 +20,5 @@ countChange = (amount) ->
     reducedResults + withoutFirstCoin
 
   innerCountChange(amount, 5)
-
 
 console.log countChange(100)
