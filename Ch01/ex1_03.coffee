@@ -6,8 +6,9 @@ SICP in CoffeeScript:
 ###
 
 sumSquaresTwoLargest = (a, b, c) ->
-  # FIXME the line below is ugly
-  twoLargest = ([a, b, c].filter (x) -> x >= Math.min(a, b, c)).slice 1,3
+  sorted     = [a, b, c].sort()
+  twoLargest = sorted.slice(1,3)
   squares    = twoLargest.map (num) -> num * num
   squares.reduce (x,y) -> x + y
 
+console.log sumSquaresTwoLargest(0,1,2)
