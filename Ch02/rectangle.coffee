@@ -1,5 +1,6 @@
 class Rectangle
-  constructor: ({ul: @upperLeft, ur: @upperRight, ll: @lowerLeft, lr: @lowerRight}) ->
+  constructor: ({ ul: @ul, ur: @ur, ll: @ll, lr: @lr }) ->
+  # Corner naming: Upper vs. Lower, Left vs. Right
 
   perimeter:  -> (@_top() + @_side()) * 2.0
   area:       -> (@_top() * @_side())
@@ -12,7 +13,7 @@ class Rectangle
   _xDiff:  (pt1, pt2) -> (pt2.x - pt1.x)
   _yDiff:  (pt1, pt2) -> (pt2.y - pt1.y)
   _square: (x) -> x * x
-  _top:    -> @_distance(@upperLeft,  @upperRight)
-  _side:   -> @_distance(@upperRight, @lowerRight)
+  _top:    -> @_distance(@ul, @ur)
+  _side:   -> @_distance(@ur, @lr)
 
 exports.Rectangle = Rectangle
