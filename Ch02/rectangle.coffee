@@ -1,5 +1,5 @@
 class Rectangle
-  constructor: (@upperLeft, @upperRight, @lowerLeft, @lowerRight) ->
+  constructor: ({ul: @upperLeft, ur: @upperRight, ll: @lowerLeft, lr: @lowerRight}) ->
 
   perimeter:  -> (@_top() + @_side()) * 2.0
   area:       -> (@_top() * @_side())
