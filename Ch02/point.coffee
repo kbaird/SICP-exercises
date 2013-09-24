@@ -1,4 +1,4 @@
 class Point
-  constructor: (@x, @y) ->
+  constructor: ({x: @x, y: @y}) ->
 
 exports.Point = Point

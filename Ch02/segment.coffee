@@ -1,7 +1,7 @@
 Point = require('./point').Point
 
 class Segment
-  constructor: (@startPt, @endPt) ->
+  constructor: ({start: @startPt, end: @endPt}) ->
 
   midPt: ->
     avg     = (a, b) -> (a + b) / 2.0
@@ -11,6 +11,6 @@ class Segment
     endY    = @endPt.y
     midX    = avg startX, endX
     midY    = avg startY, endY
-    new Point midX, midY
+    new Point x: midX, y: midY
 
 exports.Segment = Segment
