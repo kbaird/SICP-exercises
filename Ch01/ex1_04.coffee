@@ -7,7 +7,7 @@ SICP in CoffeeScript:
 
 aPlusAbsB = (a, b) ->
   op = getOp b
-  op.apply null, [a, b]
+  op.apply this, [a, b]
 
 getOp = (b) ->
   return ((x, y) -> x + y) if (b > 0)

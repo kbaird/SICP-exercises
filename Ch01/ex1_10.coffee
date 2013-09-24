@@ -5,9 +5,9 @@ SICP CoffeeScript:
 ###
 
 ackerman = (x, y) ->
-  return 0        if y is 0
-  return (y * 2)  if x is 0
-  return 2        if y is 1
+  return 0       if y is 0
+  return (y * 2) if x is 0
+  return 2       if y is 1
   ackerman((x - 1), ackerman(x, (y - 1)))
 
 console.log ackerman(1, 10) # 1024

@@ -5,15 +5,15 @@ SICP in CoffeeScript:
 ###
 
 pascalsTriangle = (rowNum) ->
-  return []     if rowNum is 0
-  return [1]    if rowNum is 1
-  return [1,1]  if rowNum is 2
+  return []    if rowNum is 0
+  return [1]   if rowNum is 1
+  return [1,1] if rowNum is 2
 
   pairsFromList = (args) ->
     [x, y, tail...] = args
-    return []     unless x?
-    return [x]    unless y?
-    return [x+y]  unless tail?
+    return []    unless x?
+    return [x]   unless y?
+    return [x+y] unless tail?
     return [x+y].concat(pairsFromList([y].concat(tail)))
 
   summedPairs = (rowNum) ->
