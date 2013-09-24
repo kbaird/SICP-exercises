@@ -11,9 +11,9 @@ pascalsTriangle = (rowNum) ->
 
   pairsFromList = (args) ->
     [x, y, tail...] = args
-    return []     if args.length is 0
-    return [x]    if args.length is 1
-    return [x+y]  if args.length is 2
+    return []     unless x?
+    return [x]    unless y?
+    return [x+y]  unless tail?
     return [x+y].concat(pairsFromList([y].concat(tail)))
 
   summedPairs = (rowNum) ->
