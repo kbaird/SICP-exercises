@@ -1,4 +1,4 @@
-;; ex2_02.scm
+;; ex2_03.scm
 ;; Kevin C. Baird
 ;; SICP
 ;; Exercise 2.3 - Represent rectangles on a plane
