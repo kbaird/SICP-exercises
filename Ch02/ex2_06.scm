@@ -18,15 +18,12 @@
 
 (define plus-alt (lambda (m) (lambda (n) ((m add1) n))))
 
-
-(define four (church-encode 4))
-
 (define (church-encode n)
-  (define (inner-encode f n)
+  (define (inner-encode f n x)
     (if (= n 0)
       x
-      (f (inner-encode f (- n 1)))))
-  (lambda (f) (lambda (x) (inner-encode f n)))
+      (f (inner-encode f (- n 1) x))))
+  (lambda (f) (lambda (x) (inner-encode f n x))))
 
 ; cf. http://stackoverflow.com/questions/3912341/arithmetic-with-church-numerals
 ; http://en.wikipedia.org/wiki/Church_encoding
