@@ -1,4 +1,4 @@
-;; ex2_07-9.scm
+;; ex2_07-10.scm
 ;; Kevin C. Baird
 ;; SICP
 ;; Exercise 2.7  - Interval Arithmetic
