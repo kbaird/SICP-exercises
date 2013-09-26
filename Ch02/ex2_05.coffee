@@ -4,12 +4,12 @@ SICP in CoffeeScript:
     Exercise 2.5 - Represent pair (a,b) as 2 ** a * 3 ** b
 ###
 
-EXPONENT = {car: 2, cdr: 3}
+BASE = {car: 2, cdr: 3}
 
-cons = (a, b) -> Math.pow(EXPONENT.car, a) * Math.pow(EXPONENT.cdr, b)
+cons = (a, b) -> Math.pow(BASE.car, a) * Math.pow(BASE.cdr, b)
 
 car = (z) ->
-  innerCar = makeExptExtractor EXPONENT.car
+  innerCar = makeExptExtractor BASE.car
   # replaces:
   #innerCar = (a, b) ->
   #  return b unless (a % 2 is 0)
@@ -17,7 +17,7 @@ car = (z) ->
   innerCar z, 0
 
 cdr = (z) ->
-  innerCar = makeExptExtractor EXPONENT.cdr
+  innerCar = makeExptExtractor BASE.cdr
   # replaces:
   #innerCar = (a, b) ->
   #  return b unless (a % 3 is 0)
