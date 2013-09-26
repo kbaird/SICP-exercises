@@ -17,17 +17,17 @@ car = (z) ->
   innerCar z, 0
 
 cdr = (z) ->
-  innerCar = makeExptExtractor BASE.cdr
+  innerCdr = makeExptExtractor BASE.cdr
   # replaces:
   #innerCar = (a, b) ->
   #  return b unless (a % 3 is 0)
   #  innerCar (a / 3), (b + 1)
-  innerCar z, 0
+  innerCdr z, 0
 
 makeExptExtractor = (base) ->
-  innerCar = (a, b) ->
+  inner = (a, b) ->
     return b unless (a % base is 0)
-    innerCar (a / base), (b + 1)
+    inner (a / base), (b + 1)
 
 l = cons 1, 2
 console.log car l
