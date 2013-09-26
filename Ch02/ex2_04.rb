@@ -4,23 +4,22 @@
 =begin rdoc
 Kevin C. Baird
 SICP in Ruby
-Exercise 2.4 - cons, car, cdr as lamba expressions
+Exercise 2.4 - cons, car, cdr
 =end
 
-cons = ->(x,y) do
+def cons(x,y)
   ->(m) { m[x,y] }
 end
 
-car = ->(z) do
+def car(z)
   z[->(p,q) { p }]
 end
 
-cdr = ->(z) do
+def cdr(z)
   z[->(p,q) { q }]
 end
 
 if __FILE__ == $0
-  l = cons[1,2]
-  puts car[l]
-  puts cdr[l]
+  l = cons(1,2)
+  puts [car(l), cdr(l)].inspect
 end
