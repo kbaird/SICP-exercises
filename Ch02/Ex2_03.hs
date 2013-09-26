@@ -1,5 +1,5 @@
 {-
- - Ex2_02.hs
+ - Ex2_03.hs
  - Kevin C. Baird
  - SICP in Haskell
  -
