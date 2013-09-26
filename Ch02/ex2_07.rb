@@ -32,3 +32,8 @@ class Range
 
 end
 
+if __FILE__ == $0
+  r1 = (0..9)
+  r2 = (3..5)
+  puts (r1+r2).inspect
+end
