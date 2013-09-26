@@ -5,7 +5,6 @@ SICP in CoffeeScript:
 ###
 
 zero = (f) -> ((x) -> x)
-add1 = (n) -> ((x) -> (f (n(f) x)))
 one  = (f) -> ((x) -> f(x))
 two  = (f) -> ((x) -> f(f(x)))
 plus = (n,m) ->
