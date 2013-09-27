@@ -8,6 +8,7 @@ class Range
     new Range newStart, newEnd
 
   div: (otherRange) ->
+    throw "Can't divide by 0." if @_spans_zero
     recipStart = 1.0 / otherRange.start
     recipEnd   = 1.0 / otherRange.end
     recip = new Range recipStart, recipEnd
@@ -30,5 +31,9 @@ class Range
 
   width: ->
     (@end - @start) / 2.0
+
+  # private methods
+  _spans_zero: ->
+    (@start >= 0 and @end <= 0) or (@end >= 0 and @start <= 0)
 
 exports.Range = Range
