@@ -28,4 +28,7 @@ class Range
     newEnd   = @end   - otherRange.end
     new Range newStart, newEnd
 
+  width: ->
+    (@end - @start) / 2.0
+
 exports.Range = Range
