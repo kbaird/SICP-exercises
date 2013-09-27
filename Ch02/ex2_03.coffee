@@ -4,8 +4,8 @@ SICP in CoffeeScript:
     Exercise 2.3 - Represent rectangles on a plane
 ###
 
-Point     = require('./point').Point
-Rectangle = require('./rectangle').Rectangle
+Point     = require('./lib/point').Point
+Rectangle = require('./lib/rectangle').Rectangle
 
 ulPt  = new Point x: 0.0, y: 0.0
 urPt  = new Point x: 3.0, y: 0.0

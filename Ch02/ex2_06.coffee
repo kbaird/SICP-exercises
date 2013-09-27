@@ -19,7 +19,6 @@ churchEncode = (n) ->
   (f) -> ((x) -> innerEncode(f,n,x))
 
 console.log zero
-console.log add1(zero)
 console.log plus(zero,zero)
 console.log plusAlt(zero,zero)
 console.log churchEncode(17)

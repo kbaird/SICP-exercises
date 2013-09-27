@@ -4,8 +4,8 @@ SICP in CoffeeScript:
     Exercise 2.2 - Represent line segments on a place.
 ###
 
-Point   = require('./point').Point
-Segment = require('./segment').Segment
+Point   = require('./lib/point').Point
+Segment = require('./lib/segment').Segment
 
 p1 = new Point x: 0.0, y: 1.0
 p2 = new Point x: 2.5, y: 3.2
