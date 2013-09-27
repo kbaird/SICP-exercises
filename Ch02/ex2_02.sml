@@ -4,8 +4,8 @@ SICP in Standard ML:
     Exercise 2.2 - Represent line segments on a place.
 *)
 
-use "point.sml";
-use "segment.sml";
+use "./lib/point.sml";
+use "./lib/segment.sml";
 
 val p1 = Point.make' {x=0.0, y=1.0}
 val p2 = Point.make' {x=2.5, y=3.2}

@@ -4,7 +4,7 @@ SICP in Standard ML:
     Exercise 2.7 - Interval Arithmetic
 *)
 
-use "interval.sml";
+use "./lib/interval.sml";
 
 val i1 = Interval.make(2.0, 9.0)
 val i2 = Interval.make(3.0, 5.0)

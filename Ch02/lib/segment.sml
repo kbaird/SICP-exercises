@@ -4,7 +4,7 @@ SICP in Standard ML:
     Exercise 2.2 - Represent line segments on a place.
 *)
 
-use "point.sml";
+use "./lib/point.sml";
 
 signature SEGMENT = sig
     structure Point : POINT

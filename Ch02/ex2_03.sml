@@ -4,8 +4,8 @@ SICP in Standard ML:
     Exercise 2.3 - Represent rectangles on a plane
 *)
 
-use "point.sml";
-use "rectangle.sml";
+use "./lib/point.sml";
+use "./lib/rectangle.sml";
 
 val ul_pt = Point.make' {x=0.0, y=0.0}
 val ur_pt = Point.make' {x=3.0, y=0.0}

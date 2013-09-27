@@ -4,7 +4,7 @@ SICP in Standard ML:
     Exercise 2.3 - Represent rectangles on a plane
 *)
 
-use "point.sml";
+use "./lib/point.sml";
 
 signature RECTANGLE = sig
     structure Point : POINT
