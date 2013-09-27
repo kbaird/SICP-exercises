@@ -6,8 +6,8 @@ SICP in Standard ML:
 
 use "interval.sml";
 
-val i1 = Interval.make(2, 9)
-val i2 = Interval.make(3, 5)
+val i1 = Interval.make(2.0, 9.0)
+val i2 = Interval.make(3.0, 5.0)
 val i3 = Interval.add(i1, i2)
 val i4 = Interval.mult(i1, i2)
 val i5 = Interval.sub(i1, i2)

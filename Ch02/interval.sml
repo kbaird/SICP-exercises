@@ -4,13 +4,13 @@ signature INTERVAL = sig
     val divide: interval * interval -> interval
     val mult:   interval * interval -> interval
     val sub:    interval * interval -> interval
-    val lower:  interval -> int
-    val upper:  interval -> int
-    val make:   int * int -> interval
+    val lower:  interval -> real
+    val upper:  interval -> real
+    val make:   real * real -> interval
 end
 
 structure Interval : INTERVAL = struct
-    type interval = int * int
+    type interval = real * real
 
     fun make(l, u) = (l, u) : interval
     
@@ -47,8 +47,8 @@ structure Interval : INTERVAL = struct
 
     fun divide(i1, i2)  =
         let
-            val recipL = (1 div lower(i2))
-            val recipU = (1 div upper(i2))
+            val recipL = (1.0 / lower(i2))
+            val recipU = (1.0 / upper(i2))
             val recip  = make(recipL, recipU)
             val prod   = mult(i1, recip)
             val newL   = lower(prod)
