@@ -1,7 +1,10 @@
 ###
 Kevin C. Baird
 SICP in CoffeeScript:
-    Exercise 2.7 - Interval Arithmetic
+    Exercise 2.7  - Interval Arithmetic
+    Exercise 2.8  - Add sub-interval
+    Exercise 2.9  - Add width
+    Exercise 2.10 - Add _spans_zero error handling
 ###
 
 Range = require('./range').Range
