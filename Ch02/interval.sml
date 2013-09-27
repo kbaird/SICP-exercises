@@ -6,6 +6,7 @@ signature INTERVAL = sig
     val sub:    interval * interval -> interval
     val lower:  interval -> real
     val upper:  interval -> real
+    val width:  interval -> real
     val make:   real * real -> interval
 end
 
@@ -62,6 +63,8 @@ structure Interval : INTERVAL = struct
             val newU = upper(i1) - upper(i2)
         in  (newL, newU) : interval
         end
+
+    fun width(i)  = (upper(i) - lower(i)) / 2.0
     
 end
 
