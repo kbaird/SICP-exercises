@@ -1,7 +1,7 @@
 /**
   * Ex1_03.scala
   * Kevin C. Baird
-  * SICP in Scala
+  * SICP in Scala (http://www.scala-lang.org/documentation/)
   *
   * Write a function that takes 3 numbers as arguments and returns
   * the sum of the squares of the 2largest arguments.
