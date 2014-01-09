@@ -1,4 +1,5 @@
 *.beam
+*.class
 *.hi
 *.o
 *.ps
