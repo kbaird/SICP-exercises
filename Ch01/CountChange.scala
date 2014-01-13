@@ -10,17 +10,16 @@
 object CountChange extends App {
 
   def countChange(amount: Int): Int = {
-    def firstDenomination(cnt: Int) = {
-      cnt match {
-        case 1 => 1
-        case 2 => 5
-        case 3 => 10
-        case 4 => 25
-        case 5 => 50
-      }
-    }
-
     def innerCountChange(amount: Int, kindsOfCoins: Int): Int = {
+      def firstDenomination(cnt: Int) = {
+        cnt match {
+          case 1 => 1
+          case 2 => 5
+          case 3 => 10
+          case 4 => 25
+          case 5 => 50
+        }
+      }
       amount match {
         case 0 => 1
         case _ => 
@@ -35,7 +34,6 @@ object CountChange extends App {
         }
       }
     }
-
     innerCountChange(amount, 5)
   }
 }
