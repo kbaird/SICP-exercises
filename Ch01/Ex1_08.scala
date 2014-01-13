@@ -8,27 +8,23 @@
   */
 
 object NewtonCube extends App {
-
-  def cbrt(x: Double) = { cbrtIter(1.0, x) } /* TODO: figure out point-free */
-
-  def improve(guess: Double, x: Double) = {
-    (x / (square(guess)) + (2 * guess)) / 3.0
-  }
-
-  def goodEnough(guess: Double, x: Double) = {
-    (math.abs((cube(guess)) - x)) < tolerance
-  }
-
-  def square(x: Double) = { x * x }
-  def cube(x: Double)   = { x * x * x }
-
-  def tolerance() = { 0.001 } /* TODO: Constant */
-
-  def cbrtIter(guess: Double, x: Double): Double = {
-    goodEnough(guess, x) match {
-      case true  => guess
-      case false => cbrtIter(improve(guess, x), x)
+  def cbrt(x: Double) = {
+    def cbrtIter(guess: Double, x: Double): Double = {
+      def improve(guess: Double, x: Double) = {
+        (x / (square(guess)) + (2 * guess)) / 3.0
+      }
+      def goodEnough(guess: Double, x: Double) = {
+        def cube(x: Double) = { x * x * x }
+        def tolerance()     = { 0.001 } /* TODO: Constant */
+        (math.abs((cube(guess)) - x)) < tolerance
+      }
+      def square(x: Double) = { x * x }
+      goodEnough(guess, x) match {
+        case true  => guess
+        case false => cbrtIter(improve(guess, x), x)
+      }
     }
+    cbrtIter(1.0, x) /* TODO: figure out point-free */
   }
 }
 
