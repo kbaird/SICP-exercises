@@ -2,7 +2,7 @@ class Range
   constructor: (@start, @end) ->
 
   add: (otherRange) ->
-    # FIXME: DRY up internals with add
+    # FIXME: DRY up similarities with sub
     newStart = @start + otherRange.start
     newEnd   = @end   + otherRange.end
     new Range newStart, newEnd
@@ -24,7 +24,7 @@ class Range
     new Range newStart, newEnd
 
   sub: (otherRange) ->
-    # FIXME: DRY up internals with add
+    # FIXME: DRY up similarities with add
     newStart = @start - otherRange.start
     newEnd   = @end   - otherRange.end
     new Range newStart, newEnd
