@@ -7,24 +7,21 @@
   * (Exercise 1.10)
   */
 
-object Ex1_10 extends App {
-
-  def ackermann(x: Int, y: Int): Int = {
-    y match {
-      case 0 => 0
-      case _ => x match {
-        case 0 => y * 2
-        case _ => if (y == 1) 2 else ackermann((x-1), ackermann(x, y-1))
-      }
+def ackermann(x: Int, y: Int): Int = {
+  y match {
+    case 0 => 0
+    case _ => x match {
+      case 0 => y * 2
+      case _ => if (y == 1) 2 else ackermann((x-1), ackermann(x, y-1))
     }
   }
 }
 
 /**
   * execute with
-  * scala -i Ex1_10.scala -e "println(Ex1_10.ackermann(1, 0))"
-  * scala -i Ex1_10.scala -e "println(Ex1_10.ackermann(0, 1))"
-  * scala -i Ex1_10.scala -e "println(Ex1_10.ackermann(2, 3))"
+  * scala -i Ex1_10.scala -e "println(ackermann(1, 0))"
+  * scala -i Ex1_10.scala -e "println(ackermann(0, 1))"
+  * scala -i Ex1_10.scala -e "println(ackermann(2, 3))"
   * until I figure out a better way
   */
 
