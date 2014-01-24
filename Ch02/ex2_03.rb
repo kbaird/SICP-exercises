@@ -8,6 +8,7 @@ Exercise 2.3 - Represent rectangles on a plane
 =end
 
 require './ex2_02.rb'
+require 'rspec'
 
 class Rectangle
 
@@ -41,12 +42,15 @@ class Rectangle
   end
 end
 
-if (__FILE__ == $0)
-  ul_pt = Point.new(0,0)
-  ur_pt = Point.new(3,0)
-  ll_pt = Point.new(0,-4)
-  lr_pt = Point.new(3,-4)
-  rect1 = Rectangle.new(ul: ul_pt, ur: ur_pt, ll: ll_pt, lr: lr_pt)
-  puts "perimeter = #{rect1.perimeter}"
-  puts "area = #{rect1.area}"
+describe Rectangle do
+  let(:ul_pt) { Point.new(0,0)  }
+  let(:ur_pt) { Point.new(3,0)  }
+  let(:ll_pt) { Point.new(0,-4) }
+  let(:lr_pt) { Point.new(3,-4) }
+  context "when instantiated with (0,0, (3,0), (0,-4), (3,-4)" do
+    subject { Rectangle.new(ul: ul_pt, ur: ur_pt, ll: ll_pt, lr: lr_pt) }
+    its(:perimeter) { should eq(14) }
+    its(:area)      { should eq(12) }
+  end
 end
+
