@@ -7,6 +7,8 @@ SICP in Ruby
 Exercise 2.6 - Church Numerals
 =end
 
+require 'rspec'
+
 zero = ->(f) do
   ->(x) { x }
 end
@@ -28,5 +30,12 @@ church_encode = ->(n) do
   end
 end
 
-if __FILE__ == $0
+describe "church encode" do
+  context "(2)" do
+    it "should be equivalent to pre-defined two" do
+      pending {
+        expect(church_encode.(2).(:arg).()).to eq(two.(:arg).())
+      }
+    end
+  end
 end
