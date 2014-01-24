@@ -9,7 +9,9 @@ Define both a recursive and iterative process for addition
 Idiomatic Ruby is to add a method to some number ancestor
 =end
 
-module Precision
+require 'rspec'
+
+class Fixnum
 
   def recursive_add(addend)
     return addend if self.zero?
@@ -29,7 +31,14 @@ module Precision
 
 end
 
-if (__FILE__ == $0)
-  puts %Q[4.recurive_add(5)  = #{4.recursive_add(5)}]
-  puts %Q[4.iterative_add(5) = #{4.iterative_add(5)}]
+describe Fixnum do
+  describe "4.recursive_add(5)" do
+    subject { 4.recursive_add(5) }
+    it { should eq 4 + 5 }
+  end
+  describe "4.iterative_add(5)" do
+    subject { 4.iterative_add(5) }
+    it { should eq 4 + 5 }
+  end
 end
+

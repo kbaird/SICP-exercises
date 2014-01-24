@@ -9,7 +9,9 @@ Define recursive and iterative definitions of f
 Idiomatic Ruby is to add a method to some number ancestor
 =end
 
-module Precision
+require 'rspec'
+
+class Fixnum
 
   def f_rec()
     return self if (self < 3)
@@ -28,9 +30,10 @@ module Precision
 
 end
 
-if (__FILE__ == $0)
-  (0..9).to_a.each do |n|
-    puts %Q[#{n}.f_rec = #{n.f_rec}, #{n}.f_iter = #{n.f_iter}]
+(0..9).to_a.each do |n|
+  describe "#{n}.f_rec" do
+    subject { n.f_rec }
+    it { should eq(n.f_iter) }
   end
 end
 

@@ -9,6 +9,8 @@ Output Pascal's Triangle via a recursive process
 Idiomatic Ruby is to add a method to a number ancestor
 =end
 
+require 'rspec'
+
 class Integer
 
   BASE = [1]
@@ -31,9 +33,53 @@ class Integer
 
 end
 
-if (__FILE__ == $0)
-  (0..9).to_a.each do |n|
-    puts %Q[#{n}.pascals_triangle = #{n.pascals_triangle.inspect}]
-  end
+describe "0.f_pascals_triangle" do
+  subject { 0.pascals_triangle }
+  it { should eq([]) }
+end
+
+describe "1.f_pascals_triangle" do
+  subject { 1.pascals_triangle }
+  it { should eq([1]) }
+end
+
+describe "2.f_pascals_triangle" do
+  subject { 2.pascals_triangle }
+  it { should eq([1, 1]) }
+end
+
+describe "3.f_pascals_triangle" do
+  subject { 3.pascals_triangle }
+  it { should eq([1, 2, 1]) }
+end
+
+describe "4.f_pascals_triangle" do
+  subject { 4.pascals_triangle }
+  it { should eq([1, 3, 3, 1]) }
+end
+
+describe "5.f_pascals_triangle" do
+  subject { 5.pascals_triangle }
+  it { should eq([1, 4, 6, 4, 1]) }
+end
+
+describe "6.f_pascals_triangle" do
+  subject { 6.pascals_triangle }
+  it { should eq([1, 5, 10, 10, 5, 1]) }
+end
+
+describe "7.f_pascals_triangle" do
+  subject { 7.pascals_triangle }
+  it { should eq([1, 6, 15, 20, 15, 6, 1]) }
+end
+
+describe "8.f_pascals_triangle" do
+  subject { 8.pascals_triangle }
+  it { should eq([1, 7, 21, 35, 35, 21, 7, 1]) }
+end
+
+describe "9.f_pascals_triangle" do
+  subject { 9.pascals_triangle }
+  it { should eq([1, 8, 28, 56, 70, 56, 28, 8, 1]) }
 end
 
