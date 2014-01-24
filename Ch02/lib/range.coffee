@@ -8,7 +8,7 @@ class Range
     throw "Can't divide by 0." if @_spansZero
     recipStart = 1.0 / otherRange.start
     recipEnd   = 1.0 / otherRange.end
-    recip = new Range recipStart, recipEnd
+    recip      = new Range recipStart, recipEnd
     @mult(recip)
 
   mult: (otherRange) ->
@@ -18,6 +18,10 @@ class Range
     p4 = @end   * otherRange.end
     newStart = Math.min [p1, p2, p3, p4]...
     newEnd   = Math.max [p1, p2, p3, p4]...
+# Could also be done with list comprehensions:
+#[p1, p2] = (r * @start for r in [otherRange.start, otherRange.end])
+#[p3, p4] = (r * @end   for r in [otherRange.start, otherRange.end])
+#[newStart, newEnd] = (Math[f] [p1, p2, p3, p4]... for f in ['min', 'max'])
     new Range newStart, newEnd
 
   sub: (otherRange) ->
