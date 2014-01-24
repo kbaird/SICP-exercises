@@ -7,6 +7,8 @@ SICP in Ruby
 Exercise 2.4 - cons, car, cdr
 =end
 
+require 'rspec'
+
 def cons(x,y)
   ->(m) { m[x,y] }
 end
@@ -19,7 +21,15 @@ def cdr(z)
   z[->(p,q) { q }]
 end
 
-if __FILE__ == $0
-  l = cons(1,2)
-  puts [car(l), cdr(l)].inspect
+describe "cons(1,2)" do
+  let(:pair) { cons(1,2) }
+  describe "car" do
+    subject { car(pair) }
+    it { should eq(1) }
+  end
+  describe "cdr" do
+    subject { cdr(pair) }
+    it { should eq(2) }
+  end
 end
+

@@ -7,6 +7,8 @@ SICP in Ruby
 Exercise 2.7 - Interval Arithmetic
 =end
 
+require 'rspec'
+
 class Range
 
   def +(other_range)
@@ -32,8 +34,20 @@ class Range
 
 end
 
-if __FILE__ == $0
+describe Range do
   r1 = (0..9)
   r2 = (3..5)
-  puts (r1+r2).inspect
+  describe "#{r1} + #{r2}" do
+    subject { r1 + r2 }
+    it { should eq((3..14)) }
+  end
+  describe "#{r1} * #{r2}" do
+    subject { r1 * r2 }
+    it { should eq((0..45)) }
+  end
+  describe "#{r1} / #{r2}" do
+    subject { r1 / r2 }
+    it { should eq((0..3)) }
+  end
 end
+
