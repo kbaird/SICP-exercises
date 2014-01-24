@@ -12,10 +12,10 @@ class Range
     @mult(recip)
 
   mult: (otherRange) ->
-    p1 = @start * otherRange.start
-    p2 = @start * otherRange.end
-    p3 = @end   * otherRange.start
-    p4 = @end   * otherRange.end
+    p1       = @start * otherRange.start
+    p2       = @start * otherRange.end
+    p3       = @end   * otherRange.start
+    p4       = @end   * otherRange.end
     newStart = Math.min [p1, p2, p3, p4]...
     newEnd   = Math.max [p1, p2, p3, p4]...
 # Could also be done with list comprehensions:
