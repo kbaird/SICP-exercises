@@ -8,6 +8,8 @@ Exercise 2.2 - Represent line segments on a plane
 
 =end
 
+require 'rspec'
+
 class Point
   attr_accessor :x, :y
   def initialize(x, y)
@@ -31,9 +33,12 @@ class Segment
   end
 end
 
-if (__FILE__ == $0)
-  pt1 = Point.new(0,0)
-  pt2 = Point.new(3,4)
-  s1  = Segment.new(pt1,pt2)
-  puts s1.midpoint.inspect
+describe Segment do
+  let(:pt1) { Point.new(0,0) }
+  let(:pt2) { Point.new(3,4) }
+  context "when given a 0,0 Point and a 3,4 Point" do
+    subject { Segment.new(pt1, pt2) }
+    its('midpoint.x') { should eq(1.5) }
+    its('midpoint.y') { should eq(2.0) }
+  end
 end
