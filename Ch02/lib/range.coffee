@@ -2,7 +2,8 @@ class Range
   constructor: (@start, @end) ->
 
   add: (otherRange) ->
-    @_applyToOtherRange(@_add, otherRange)
+    add = (x, y) -> (x + y)
+    @_applyToOtherRange(add, otherRange)
 
   div: (otherRange) ->
     throw "Can't divide by 0." if @_spansZero
@@ -27,15 +28,13 @@ class Range
     new Range newStart, newEnd
 
   sub: (otherRange) ->
-    @_applyToOtherRange(@_sub, otherRange)
+    sub = (x, y) -> (x - y)
+    @_applyToOtherRange(sub, otherRange)
 
   width: ->
     (@end - @start) / 2.0
 
   # private methods
-  _add: (x, y) -> (x + y)
-  _sub: (x, y) -> (x - y)
-
   _applyToOtherRange: (f, otherRange) ->
     newStart = f(@start, otherRange.start)
     newEnd   = f(@end,   otherRange.end)
