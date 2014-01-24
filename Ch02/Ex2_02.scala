@@ -19,18 +19,16 @@ class Segment(p1: Point, p2: Point) {
   override def toString(): String = "(" + startPt + ", " + endPt + ")";
 }
 
-object Ex2_02 extends App {
-  def output() = {
-    val pt1 = new Point(0, 4)
-    val pt2 = new Point(1, 2)
-    val seg = new Segment(pt1, pt2)
-    seg
-  }
+def output() = {
+  val pt1 = new Point(0, 4)
+  val pt2 = new Point(1, 2)
+  val seg = new Segment(pt1, pt2)
+  seg
 }
 
 /**
   * execute with
-  * scala -i Ex2_02.scala -e "println(Ex2_02.output)"
+  * scala -i Ex2_02.scala -e "println(output)"
   * until I figure out a better way
   */
 
