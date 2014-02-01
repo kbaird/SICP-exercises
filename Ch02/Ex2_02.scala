@@ -7,15 +7,11 @@
   */
 
 /* TODO: Double instead of Int */
-class Point(xc: Int, yc: Int) {
-  var x: Int = xc
-  var y: Int = yc
+case class Point(x: Int, y: Int) {
   override def toString(): String = "(" + x + ", " + y + ")";
 }
 
-class Segment(p1: Point, p2: Point) {
-  var startPt: Point = p1
-  var endPt: Point   = p2
+case class Segment(startPt: Point, endPt: Point) {
   override def toString(): String = "(" + startPt + ", " + endPt + ")";
 }
 
