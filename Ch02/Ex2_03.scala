@@ -19,15 +19,12 @@ case class Rectangle(ul: Point, ur: Point, ll: Point, lr: Point) {
   private def _side: Double = { _distance(ul, ur) }
   private def _top:  Double = { _distance(ur, lr) }
   private def _distance(pt1: Point, pt2: Point): Double = {
-    /*
-    square   = (x) -> x * x
-    xDiff    = (pt1, pt2) -> (pt2.x - pt1.x)
-    yDiff    = (pt1, pt2) -> (pt2.y - pt1.y)
-    xSquares = square(xDiff(pt1, pt2))
-    ySquares = square(yDiff(pt1, pt2))
-    Math.sqrt(xSquares + ySquares)
-    */
-    1.5
+    val square   = (x: Double) => x * x
+    val xDiff    = (pt1: Point, pt2: Point) => (pt2.x - pt1.x)
+    val yDiff    = (pt1: Point, pt2: Point) => (pt2.y - pt1.y)
+    val xSquares = square(xDiff(pt1, pt2))
+    val ySquares = square(yDiff(pt1, pt2))
+    scala.math.sqrt(xSquares + ySquares)
   }
 }
 
