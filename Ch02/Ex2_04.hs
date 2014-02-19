@@ -7,7 +7,16 @@
  -
  -}
 
-{- FIXME type errors -}
-cons x y = \m -> m x y
-car z    = z (\(p,q) -> p)
-cdr z    = z (\(p,q) -> q)
+type E = Int
+type PairToE = E -> E  -> E
+type Storage = PairToE -> E
+
+cons :: E -> E -> Storage
+cons x y f = f x y
+
+car :: Storage -> E
+car f = f (\x y -> x)
+
+cdr :: Storage -> E
+cdr f = f (\x y -> y)
+
