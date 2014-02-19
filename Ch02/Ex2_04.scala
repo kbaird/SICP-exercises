@@ -6,19 +6,18 @@
   * cons, car, cdr
   */
 
-def cons(x, y) = {
-  (m) => m(x, y)
-}
+/* Element */
+type E       = Any
+type PairToE = (E,E)   => E
+type Storage = PairToE => E
 
-def car(z) = {
-  z((p, q) => p)
-}
-
-def cdr(z) = {
-  z((p, q) => q)
-}
+def cons(x: E, y: E): Storage = { (f: PairToE) => f(x, y) }
+def car(f: Storage): E        = { f((p, q) => p) }
+def cdr(f: Storage): E        = { f((p, q) => q) }
 
 def output() = {
-  val pair = cons(1.0, 2.0)
-  (car(pair), cdr(pair))
+  val pair = cons(1.0, 'x')
+  val head = car(pair)
+  val tail = cdr(pair)
+  (head, tail)
 }
