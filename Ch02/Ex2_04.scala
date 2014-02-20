@@ -21,3 +21,9 @@ def output() = {
   val tail = cdr(pair)
   (head, tail)
 }
+
+/**
+  * execute with
+  * scala -i Ex2_04.scala -e "println(output)"
+  * until I figure out a better way
+  */
