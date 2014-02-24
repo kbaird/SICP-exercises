@@ -18,6 +18,7 @@ case class Interval(head: Double, end: Double) {
     Interval(newH, newE)
   }
   def div(otherI: Interval): Interval = {
+    /* TODO: add spans zero error handling */
     val recipH = (1.0 / otherI.head): Double
     val recipE = (1.0 / otherI.end): Double
     val recip  = Interval(recipH, recipE)
