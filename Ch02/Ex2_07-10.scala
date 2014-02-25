@@ -50,13 +50,16 @@ def output() = {
   val i1 = new Interval(2, 9)
   val i2 = new Interval(3, 5)
   val i3 = new Interval(-1, 5)
-  (i1, i2,
-   i1.add(i2),
-   i1.sub(i2),
-   i1.mult(i2),
-   i1.div(i2),
-   i1.div(i3),
-   i1.width
+  (
+    i1, i2,
+    i1.add(i2),
+    i1.sub(i2),
+    i1.mult(i2),
+    i1.div(i2),
+    i1.width
+    /*
+     * error properly raised by i3.div(i1)
+     */
   )
 }
 
