@@ -14,7 +14,7 @@ def cbrt(x: Double) = {
     }
     def goodEnough(guess: Double, x: Double) = {
       def cube(x: Double) = { x * x * x }
-      def tolerance()     = { 0.001 } /* TODO: Constant */
+      val tolerance       = 0.001
       (math.abs((cube(guess)) - x)) < tolerance
     }
     def square(x: Double) = { x * x }
