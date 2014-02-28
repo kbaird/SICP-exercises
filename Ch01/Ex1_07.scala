@@ -14,7 +14,7 @@ def sqrt(x: Double) = {
     }
     def goodEnough(guess: Double, x: Double) = {
       def square(x: Double)    = { x * x }
-      def tolerance(x: Double) = { x * 0.001 } /* TODO: figure out point-free */
+      def tolerance(x: Double) = { x * 0.001 }
       (math.abs((square(guess)) - x)) < tolerance(guess)
     }
     goodEnough(guess, x) match {
@@ -22,7 +22,7 @@ def sqrt(x: Double) = {
       case false => sqrtIter(improve(guess, x), x)
     }
   }
-  sqrtIter(1.0, x) /* TODO: figure out point-free */
+  sqrtIter(1.0, x)
 }
 
 /**
