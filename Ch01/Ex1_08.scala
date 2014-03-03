@@ -23,7 +23,7 @@ def cbrt(x: Double) = {
       case false => cbrtIter(improve(guess, x), x)
     }
   }
-  cbrtIter(1.0, x) /* TODO: figure out point-free */
+  cbrtIter(1.0, x)
 }
 
 /**
