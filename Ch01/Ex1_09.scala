@@ -7,8 +7,8 @@
   * (Exercise 1.9)
   */
 
-def inc(x: Int) = { x + 1 } /* TODO: figure out point-free */
-def dec(x: Int) = { x - 1 } /* TODO: figure out point-free */
+def inc(x: Int) = { x + 1 }
+def dec(x: Int) = { x - 1 }
 
 def rAdd(a: Int, b: Int): Int = {
   a match {
