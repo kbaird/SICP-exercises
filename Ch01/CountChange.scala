@@ -20,7 +20,7 @@ def countChange(amount: Int): Int = {
     }
     amount match {
       case 0 => 1
-      case _ => 
+      case _ =>
         (amount < 0) match {
           case true => 0
           case _    =>
