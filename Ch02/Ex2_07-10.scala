@@ -19,7 +19,7 @@ case class Interval(head: Double, end: Double) {
     Interval(newH, newE)
   }
   def div(otherI: Interval): Interval = {
-    val spansZero = 
+    val spansZero =
       (head >= 0 && end <= 0) ||
       (head <= 0 && end >= 0)
     if (spansZero)
