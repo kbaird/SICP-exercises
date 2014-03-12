@@ -14,17 +14,17 @@ structure Interval : INTERVAL = struct
     type interval = real * real
 
     fun make(l, u) = (l, u) : interval
-    
+
     fun lower(l, _)  = l
     fun upper(_, u)  = u
-    
+
     fun add(i1, i2)  =
         let
             val newL = lower(i1) + lower(i2)
             val newU = upper(i1) + upper(i2)
         in  (newL, newU) : interval
         end
-    
+
     fun mult(i1, i2)  =
         let
             val l1   = lower(i1)
@@ -65,6 +65,6 @@ structure Interval : INTERVAL = struct
         end
 
     fun width(i)  = (upper(i) - lower(i)) / 2.0
-    
+
 end
 
