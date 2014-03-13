@@ -12,7 +12,7 @@ fun extract encoded candidate base =
      *)
 
 fun cons x y =
-    let  
+    let
         val newX = Math.pow(2.0,Real.fromInt(x):real)
         val newY = Math.pow(3.0,Real.fromInt(y):real)
     in
