@@ -1,10 +1,11 @@
-;; ex2_07-10.scm
+;; ex2_07-10_12.scm
 ;; Kevin C. Baird
 ;; SICP
 ;; Exercise 2.7  - Interval Arithmetic
 ;; Exercise 2.8  - add sub-interval
 ;; Exercise 2.9  - add width
 ;; Exercise 2.10 - add spans-zero? error handling
+;; Exercise 2.12 - add make-center-percent and related
 
 (define (add-interval x y)
   (make-interval (+ (lower-bound x) (lower-bound y))
@@ -34,6 +35,18 @@
 (define (make-interval a b) (cons a b))
 (define upper-bound cdr)
 (define lower-bound car)
+
+(define (make-center-percent c p)
+  (let (w) "TODO: derive from p")
+  (make-interval (- c w) (+ c w)))
+(define (make-center-width c w)
+  (make-interval (- c w) (+ c w)))
+(define (center i)
+  (/ (+ (lower-bound i) (upper-bound i)) 2))
+(define (percent i)
+  "TODO")
+(define (width i)
+  (/ (- (upper-bound i) (lower-bound i)) 2))
 
 (define (sub-interval x y)
   (make-interval (- (lower-bound x) (lower-bound y))
