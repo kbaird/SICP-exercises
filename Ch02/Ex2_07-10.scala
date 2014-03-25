@@ -1,5 +1,5 @@
 /**
-  * Ex2_07.scala
+  * Ex2_07-10.scala
   * Kevin C. Baird
   * SICP in Scala (http://www.scala-lang.org/documentation/)
   *
