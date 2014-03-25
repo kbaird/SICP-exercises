@@ -1,9 +1,11 @@
 {-
- - Ex2_07.hs
+ - Ex2_07-9.hs
  - Kevin C. Baird
  - SICP in Haskell
  -
- - Interval Arithmetic
+ - Exercise 2.7 - Interval Arithmetic
+ - Exercise 2.8 - Add subInterval
+ - Exercise 2.9 - Add widthInterval
  -
  -}
 
