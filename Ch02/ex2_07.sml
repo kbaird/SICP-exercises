@@ -1,7 +1,9 @@
 (*
 Kevin C. Baird
 SICP in Standard ML:
-    Exercise 2.7 - Interval Arithmetic
+    Exercise 2.7  - Interval Arithmetic
+    Exercise 2.8  - Add sub
+    Exercise 2.9  - Add width
 *)
 
 use "./lib/interval.sml";
