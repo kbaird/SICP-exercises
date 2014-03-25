@@ -1,10 +1,11 @@
 #!/usr/bin/env /ruby
-# ex2_07.rb
+# ex2_07-8.rb
 
 =begin rdoc
 Kevin C. Baird
 SICP in Ruby
 Exercise 2.7 - Interval Arithmetic
+Exercise 2.8 - Add subtraction
 =end
 
 require 'rspec'
