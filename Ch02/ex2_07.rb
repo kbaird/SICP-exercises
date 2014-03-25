@@ -17,6 +17,12 @@ class Range
     new_first..new_last
   end
 
+  def -(other_range)
+    new_first = (first - other_range.first)
+    new_last  = (last  - other_range.last)
+    new_first..new_last
+  end
+
   def *(other_range)
     p1 = first * other_range.first
     p2 = first * other_range.last
@@ -40,6 +46,10 @@ describe Range do
   describe "#{r1} + #{r2}" do
     subject { r1 + r2 }
     it { should eq((3..14)) }
+  end
+  describe "#{r1} - #{r2}" do
+    subject { r1 - r2 }
+    it { should eq((-3..4)) }
   end
   describe "#{r1} * #{r2}" do
     subject { r1 * r2 }
