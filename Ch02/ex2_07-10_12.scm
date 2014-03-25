@@ -37,14 +37,14 @@
 (define lower-bound car)
 
 (define (make-center-percent c p)
-  (let (w) "TODO: derive from p")
-  (make-interval (- c w) (+ c w)))
+  (let (w) (/ (* c p) 100))
+  (make-center-width c w))
 (define (make-center-width c w)
   (make-interval (- c w) (+ c w)))
 (define (center i)
   (/ (+ (lower-bound i) (upper-bound i)) 2))
 (define (percent i)
-  "TODO")
+  (/ (width i) 100))
 (define (width i)
   (/ (- (upper-bound i) (lower-bound i)) 2))
 
