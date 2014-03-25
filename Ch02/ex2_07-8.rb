@@ -6,6 +6,7 @@ Kevin C. Baird
 SICP in Ruby
 Exercise 2.7 - Interval Arithmetic
 Exercise 2.8 - Add subtraction
+Exercise 2.9 - Add width
 =end
 
 require 'rspec'
@@ -39,6 +40,10 @@ class Range
     self * recip
   end
 
+  def width
+    (last - first) / 2.0
+  end
+
 end
 
 describe Range do
@@ -59,6 +64,14 @@ describe Range do
   describe "#{r1} / #{r2}" do
     subject { r1 / r2 }
     it { should eq((0..3)) }
+  end
+  describe "#{r1}.width" do
+    subject { r1.width }
+    it { should eq(4.5) }
+  end
+  describe "#{r2}.width" do
+    subject { r2.width }
+    it { should eq(1) }
   end
 end
 
