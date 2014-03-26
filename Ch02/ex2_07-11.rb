@@ -1,5 +1,5 @@
 #!/usr/bin/env /ruby
-# ex2_07-10.rb
+# ex2_07-12.rb
 
 =begin rdoc
 Kevin C. Baird
@@ -8,11 +8,26 @@ Exercise 2.7  - Interval Arithmetic
 Exercise 2.8  - Add subtraction
 Exercise 2.9  - Add width
 Exercise 2.10 - Add spans_zero? error handling
+Exercise 2.11 - Add sign testing variant of mult
+Exercise 2.12 - Add make w/center & width, etc.
 =end
 
 require 'rspec'
 
 class Range
+
+  def self.make(center:, percent: 100,width: nil)
+    width ||= (center * percent) / 100.0
+    (center - width)..(center + width)
+  end
+
+  def center
+    (first + last) / 2.0
+  end
+
+  def percent
+    width * 100
+  end
 
   def +(other_range)
     new_first = (first + other_range.first)
@@ -107,6 +122,38 @@ describe Range do
     it "raises a div by zero error" do
       expect(division_by_zero).to raise_error(ZeroDivisionError)
     end
+  end
+  describe "Range.make(center: 4, percent: 25)" do
+    subject { Range.make(center: 4, percent: 25) }
+    it { should eq(3..5) }
+  end
+  describe "Range.make(center: 3, width: 1)" do
+    subject { Range.make(center: 3, width: 1) }
+    it { should eq(2..4) }
+  end
+  describe "#{r1}.center" do
+    subject { r1.center }
+    it { should eq(4.5) }
+  end
+  describe "#{r2}.center" do
+    subject { r2.center }
+    it { should eq(4) }
+  end
+  describe "#{r3}.center" do
+    subject { r3.center }
+    it { should eq(0.5) }
+  end
+  describe "#{r1}.percent" do
+    subject { r1.percent }
+    it { should eq(450) }
+  end
+  describe "#{r2}.percent" do
+    subject { r2.percent }
+    it { should eq(100) }
+  end
+  describe "#{r3}.percent" do
+    subject { r3.percent }
+    it { should eq(50) }
   end
   describe "#{r1}.width" do
     subject { r1.width }
