@@ -36,6 +36,29 @@ class Range
     new_first..new_last
   end
 
+  # Ex2.11 version, testing signs
+  def mult(other_range)
+    xlo = first
+    xhi = last
+    ylo = other_range.first
+    yhi = other_range.last
+    pos = ->(x) { x >= 0 }
+    neg = ->(x) { x <= 0 }
+    return (xlo * ylo)..(xhi * yhi) if [xlo, xhi, ylo, yhi].all?(&pos)
+    return (xhi * ylo)..(xhi * yhi) if [xlo, xhi, yhi].all?(&pos) and [ylo].all?(&neg)
+    return (xhi * ylo)..(xlo * yhi) if [xlo, xhi].all?(&pos) and [ylo, yhi].all?(&neg)
+    return (xlo * yhi)..(xhi * ylo) if [xlo].all?(&neg) and [xhi, ylo, yhi].all?(&pos)
+    if [xlo, ylo].all?(&neg) and [xhi, yhi].all?(&pos)
+      new_min = [(xhi * ylo), (xlo * yhi)].min
+      new_max = [(xlo * ylo), (xhi * yhi)].min
+      return new_min..new_max
+    end
+    return (xhi * ylo)..(xlo * ylo) if [xhi].all?(&pos) and [xlo, ylo, yhi].all?(&pos)
+    return (xlo * yhi)..(xhi * ylo) if [xlo, xhi].all?(&neg) and [ylo, yhi].all?(&pos)
+    return (xlo * yhi)..(xlo * ylo) if [xlo, xhi, ylo].all?(&neg) and [yhi].all?(&pos)
+    return (xhi * yhi)..(xlo * ylo) if [xlo, xhi, ylo, yhi].all?(&pos)
+  end
+
   def /(other_range)
     raise ZeroDivisionError if other_range.spans_zero?
     recip = (1.0 / other_range.last)..(1.0 / other_range.first)
@@ -69,6 +92,10 @@ describe Range do
   end
   describe "#{r1} * #{r2}" do
     subject { r1 * r2 }
+    it { should eq((0..45)) }
+  end
+  describe "#{r1}.mult(#{r2})" do
+    subject { r1.mult(r2) }
     it { should eq((0..45)) }
   end
   describe "#{r1} / #{r2}" do
