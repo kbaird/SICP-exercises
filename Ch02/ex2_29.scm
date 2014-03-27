@@ -28,14 +28,20 @@
 (define (branch-torque b)
  (* (branch-length b) (branch-weight b)))
 
+(define (branch-balanced? b)
+ (if (pair? (branch-structure b))
+  (balanced? (branch-structure b))
+  #t))
+
 (define (balanced? m)
  (define lb (left-branch m))
  (define rb (right-branch m))
  (define equal-torque (= (branch-torque lb) (branch-torque rb)))
- (and (balanced? lb) (balanced? rb) equal-torque))
+ (and (branch-balanced? lb) (branch-balanced? rb) equal-torque))
 
 (define lb (make-branch 3 1))
 (define rb (make-branch 2 1))
 (define m1 (make-mobile lb rb))
 (define m2 (make-mobile lb (make-branch 4 m1)))
+(define mb (make-mobile lb lb))
 
