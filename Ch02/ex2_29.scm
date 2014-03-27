@@ -5,15 +5,19 @@
 
 (define (make-mobile left right)
  (list left right))
+;; Part d: (cons left right) instead
 
 (define (make-branch len structure)
  (list len structure))
+;; Part d: (cons len structure) instead
 
 (define left-branch car)
 (define right-branch cadr)
+;; Part d: (define right-branch cdr) instead
 
 (define branch-length car)
 (define branch-structure cadr)
+;; Part d: (define branch-structure cdr) instead
 
 (define (branch-weight b)
  (if (pair? (branch-structure b))
