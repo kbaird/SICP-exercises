@@ -11,7 +11,7 @@
 
   ; define internal cc procedure
   (define (cc amount coins)
-   (define kinds-of-coins (length coins))
+    (define kinds-of-coins (length coins))
 
     ; There is only 1 coin inventory that expresses no money at all
     (cond ((= amount 0) 1)
@@ -31,7 +31,7 @@
                        coins)))))
 
   (define (first-denomination coins)
-   (car coins))
+    (car coins))
 
   ; call internal cc procedure with US coin set
   (cc amount us-coins))

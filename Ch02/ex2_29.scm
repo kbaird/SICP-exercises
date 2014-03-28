@@ -4,11 +4,11 @@
 ;; Exercise 2.29 - mobiles
 
 (define (make-mobile left right)
- (list left right))
+  (list left right))
 ;; Part d: (cons left right) instead
 
 (define (make-branch len structure)
- (list len structure))
+  (list len structure))
 ;; Part d: (cons len structure) instead
 
 (define left-branch car)
@@ -21,27 +21,27 @@
 
 (define (branch-weight b)
  (if (pair? (branch-structure b))
-  (total-weight (branch-structure b))
-  (branch-structure b)))
+   (total-weight (branch-structure b))
+   (branch-structure b)))
 
 (define (total-weight m)
- (define lb (left-branch m))
- (define rb (right-branch m))
- (+ (branch-weight lb) (branch-weight rb)))
+  (define lb (left-branch m))
+  (define rb (right-branch m))
+  (+ (branch-weight lb) (branch-weight rb)))
 
 (define (branch-torque b)
- (* (branch-length b) (branch-weight b)))
+  (* (branch-length b) (branch-weight b)))
 
 (define (branch-balanced? b)
- (if (pair? (branch-structure b))
-  (balanced? (branch-structure b))
-  #t))
+  (if (pair? (branch-structure b))
+    (balanced? (branch-structure b))
+    #t))
 
 (define (balanced? m)
- (define lb (left-branch m))
- (define rb (right-branch m))
- (define equal-torque (= (branch-torque lb) (branch-torque rb)))
- (and (branch-balanced? lb) (branch-balanced? rb) equal-torque))
+  (define lb (left-branch m))
+  (define rb (right-branch m))
+  (define equal-torque (= (branch-torque lb) (branch-torque rb)))
+  (and (branch-balanced? lb) (branch-balanced? rb) equal-torque))
 
 (define lb (make-branch 3 1))
 (define rb (make-branch 2 1))

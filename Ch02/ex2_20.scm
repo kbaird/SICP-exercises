@@ -4,6 +4,6 @@
 ;; Add same-parity
 
 (define (same-parity model . others)
- (define p (if (even? model) even? odd?))
+  (define p (if (even? model) even? odd?))
   (cons model (filter p others)))
 

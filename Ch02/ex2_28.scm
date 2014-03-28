@@ -11,8 +11,8 @@
   ;(1 2 3 4 1 2 3 4)
 
 (define (fringe l)
- (cond
-  ((null? l) l)
-  ((not (pair? l)) (list l))
-  (else
-   (append (fringe (car l)) (fringe (cdr l))))))
+  (cond
+    ((null? l) l)
+    ((not (pair? l)) (list l))
+    (else
+      (append (fringe (car l)) (fringe (cdr l))))))
