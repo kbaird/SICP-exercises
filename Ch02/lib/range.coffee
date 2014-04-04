@@ -27,6 +27,32 @@ class Range
 
     new Range newStart, newEnd
 
+  mult2: (otherRange) ->
+    xlo = @start
+    xhi = @end
+    ylo = otherRange.start
+    yhi = otherRange.end
+    if (xlo >= 0 and xhi >= 0 and ylo >= 0 and yhi >= 0)
+      new Range (xlo * ylo), (xhi * yhi)
+    else if (xlo >= 0 and xhi >= 0 and ylo <= 0 and yhi >= 0)
+      new Range (xhi * ylo), (xhi * yhi)
+    else if (xlo >= 0 and xhi >= 0 and ylo <= 0 and yhi <= 0)
+      new Range (xhi * ylo), (xlo * yhi)
+    else if (xlo <= 0 and xhi >= 0 and ylo >= 0 and yhi >= 0)
+      new Range (xlo * yhi), (xhi * yhi)
+    else if (xlo <= 0 and xhi >= 0 and ylo <= 0 and yhi >= 0)
+      newStart = Math.min [(xhi * ylo), (xlo * yhi)]
+      newEnd   = Math.max [(xlo * ylo), (xhi * yhi)]
+      new Range newStart, newEnd
+    else if (xlo <= 0 and xhi >= 0 and ylo <= 0 and yhi <= 0)
+      new Range (xhi * ylo), (xlo * ylo)
+    else if (xlo <= 0 and xhi <= 0 and ylo >= 0 and yhi >= 0)
+      new Range (xlo * yhi), (xhi * ylo)
+    else if (xlo <= 0 and xhi <= 0 and ylo <= 0 and yhi >= 0)
+      new Range (xlo * yhi), (xlo * ylo)
+    else if (xlo <= 0 and xhi <= 0 and ylo <= 0 and yhi <= 0)
+      new Range (xhi * yhi), (xlo * ylo)
+
   sub: (otherRange) ->
     sub = (x, y) -> (x - y)
     @_applyToOtherRange(sub, otherRange)
