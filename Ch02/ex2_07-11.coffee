@@ -16,6 +16,7 @@ console.log r1
 console.log r2
 console.log r1.add(r2)
 console.log r1.mult(r2)
+console.log r1.multLC(r2)
 console.log r1.mult2(r2)
 console.log r1.sub(r2)
 console.log r1.width()
