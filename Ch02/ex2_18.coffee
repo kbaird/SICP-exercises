@@ -5,8 +5,7 @@ SICP in CoffeeScript:
 ###
 
 reverse = (l) ->
-  head = l[0]
-  tail = l[1..]
+  [head, tail] = [l[0], l[1..]]
   if tail.length is 0 then [head] else reverse(tail).concat head
 
 console.log reverse [0, 1, 2, 3]
