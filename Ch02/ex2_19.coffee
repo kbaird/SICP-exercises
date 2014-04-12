@@ -1,7 +1,7 @@
 ###
 Kevin C. Baird
 SICP in CoffeeScript:
-  Exercise 2.18 - Count the number of ways to make change,
+  Exercise 2.19 - Count the number of ways to make change,
     with the list of coins as an argument
 ###
 
