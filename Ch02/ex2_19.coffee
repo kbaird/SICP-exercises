@@ -19,9 +19,10 @@ countChange = (amount) ->
     return 0 if (amt < 0)
     # There is no way to make change for a negative amount of money.
 
-    reducedAmt        = amt - coins[0]
+    [firstCoin, otherCoins...] = coins
+    reducedAmt        = amt - firstCoin
     reducedResults    = innerCountChange(reducedAmt, coins)
-    withoutFirstCoin  = innerCountChange(amt, coins[1..])
+    withoutFirstCoin  = innerCountChange(amt, otherCoins)
 
     reducedResults + withoutFirstCoin
 
