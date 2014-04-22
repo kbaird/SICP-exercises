@@ -1,7 +1,7 @@
 ###
 Kevin C. Baird
 SICP in CoffeeScript:
-  Exercise 2.20 - Define 2 versions of square-list
+  Exercise 2.21 - Define 2 versions of square-list
 ###
 
 squareList1 = (items) ->
