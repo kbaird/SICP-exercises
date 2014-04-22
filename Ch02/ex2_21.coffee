@@ -12,7 +12,11 @@ squareList1 = (items) ->
 squareList2 = (items) ->
   items.map (x) -> x * x
 
+squareList3 = (items) ->
+  x * x for x in items
+
 console.log squareList1 [0, 1, 2, 3, 4]
 console.log squareList2 [0, 1, 2, 3, 4]
+console.log squareList3 [0, 1, 2, 3, 4]
 
 
