@@ -2,7 +2,7 @@
 ;; Kevin C. Baird
 ;; SICP
 ;; Exercise 2.11 - add sign checks to reduce multiplication count
-;; Shamelessly stolen from 
+;; Shamelessly stolen from
 ;; http://www.billthelizard.com/2010/12/sicp-27-211-extended-exercise-interval.html
 (define (mul-interval x y)
   (let ((xlo (lower-bound x))
