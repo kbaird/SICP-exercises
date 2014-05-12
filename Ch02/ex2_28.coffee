@@ -24,11 +24,12 @@ x = [[1, 2], [3, 4]]
 y = [x, x]
 
 fringe = (items) ->
-  innerFringe = (items) ->
-    [head, tail...] = items
-    fringe(head).concat(fringe(tail))
-  if items.length is 0 then [] else
-    if items.length is 2 then innerFringe(items) else items
+  [].concat items...
+  #innerFringe = (items) ->
+  #  [head, tail...] = items
+  #  fringe(head).concat(fringe(tail))
+  #if items.length is 0 then [] else
+  #  if items.length is 2 then innerFringe(items) else [].concat items...
 
 console.log(fringe(x))
 console.log(fringe(y))
