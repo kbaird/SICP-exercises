@@ -24,12 +24,9 @@ x = [[1, 2], [3, 4]]
 y = [x, x]
 
 fringe = (items) ->
-  [].concat items...
-  #innerFringe = (items) ->
-  #  [head, tail...] = items
-  #  fringe(head).concat(fringe(tail))
-  #if items.length is 0 then [] else
-  #  if items.length is 2 then innerFringe(items) else [].concat items...
+  if items.length is 0 then [] else
+    [head, tail...] = items
+    [].concat(head...).concat fringe(tail)
 
-console.log(fringe(x))
-console.log(fringe(y))
+console.log(fringe(x)) # want [1, 2, 3, 4]
+console.log(fringe(y)) # want [1, 2, 3, 4, 1, 2, 3, 4]
