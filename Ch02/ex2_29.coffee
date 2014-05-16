@@ -52,6 +52,18 @@ SICP in CoffeeScript:
 (define mb (make-mobile lb lb))
 ###
 
+makeBranch = (len, structure) -> [len, structure]
+makeMobile = (l, r) -> [l, r]
+
+leftBranch = (b) ->
+  [head, tail...] = b
+  head
+
+rightBranch = (b) ->
+  [head, tail...] = b
+  tail
+
+
 x = [[1, 2], [3, 4]]
 y = [x, x]
 
