@@ -63,14 +63,14 @@ rightBranch = (b) ->
   [head, tail...] = b
   tail
 
+lb = makeBranch(3, 1)
+rb = makeBranch(2, 1)
+m1 = makeMobile(lb, rb)
+m2 = makeMobile(lb, makeBranch(4, m1))
+mb = makeMobile(lb, lb)
 
-x = [[1, 2], [3, 4]]
-y = [x, x]
-
-fringe = (items) ->
-  if items.length is 0 then [] else
-    [head, tail...] = items
-    [].concat(head...).concat fringe(tail)
-
-console.log(fringe(x)) # want [1, 2, 3, 4]
-console.log(fringe(y)) # want [1, 2, 3, 4, 1, 2, 3, 4]
+console.log lb
+console.log rb
+console.log m1
+console.log m2
+console.log mb
