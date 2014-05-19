@@ -32,7 +32,7 @@ leftBranch = (b) ->
 
 rightBranch = (b) ->
   [head, tail...] = b
-  tail
+  leftBranch(tail)
 
 ###
 (define branch-length car)
@@ -45,7 +45,7 @@ branchLength = (b) ->
   
 branchStructure = (b) ->
   [head, tail...] = b
-  tail
+  leftBranch(tail)
 
 ###
 (define (branch-weight b)
@@ -54,7 +54,8 @@ branchStructure = (b) ->
    (branch-structure b)))
 ###
 branchWeight = (b) ->
-  if b.length is 2 then totalWeight(branchStructure(b)) else branchStructure(b)
+  bs = branchStructure(b)
+  if bs.length is 2 then totalWeight(bs) else bs
 
 ###
 (define (total-weight m)
@@ -63,9 +64,8 @@ branchWeight = (b) ->
   (+ (branch-weight lb) (branch-weight rb)))
 ###
 totalWeight = (m) ->
-  branches  = [leftBranch(m), rightBranch(m)]
-  weights   = (branchWeight(b) for b in branches)
-  weights.reduce(x,y) -> x + y
+  [lb, rb]  = [leftBranch(m), rightBranch(m)]
+  branchWeight(lb) + branchWeight(rb)
 
 ###
 (define (branch-torque b)
@@ -81,7 +81,8 @@ branchTorque = (b) ->
     #t))
 ###
 branchBalanced = (b) ->
-  if b.length is 2 then balanced(branchStructure(b)) else true
+  bs = branchStructure(b)
+  if bs.length is 2 then balanced(bs) else true
 
 ###
 (define (balanced? m)
@@ -91,8 +92,7 @@ branchBalanced = (b) ->
   (and (branch-balanced? lb) (branch-balanced? rb) equal-torque))
 ###
 balanced = (m) ->
-  lb = leftBranch(m)
-  rb = rightBranch(m)
+  [lb, rb]    = [leftBranch(m), rightBranch(m)]
   equalTorque = arrayEqual(lb, rb)
   equalTorque and branchBalanced(lb) and branchBalanced(rb)
 
@@ -109,11 +109,23 @@ m1 = makeMobile(lb, rb)
 m2 = makeMobile(lb, makeBranch(4, m1))
 mb = makeMobile(lb, lb)
 
+###
 console.log lb
+console.log branchBalanced(lb)
+console.log branchLength(lb)
+console.log branchWeight(lb)
 console.log rb
-console.log m1
-console.log m2
-console.log mb
-console.log balanced(m1)
-console.log balanced(mb)
-console.log balanced(makeBranch(lb, lb))
+console.log branchBalanced(rb)
+console.log branchLength(rb)
+console.log branchWeight(rb)
+###
+console.log "m1 = " + m1
+console.log "m1 balanced = " + balanced(m1)
+console.log "leftBranch(m1) = " + leftBranch(m1)
+console.log "rightBranch(m1) = " + rightBranch(m1)
+console.log "totalWeight(m1) = " + totalWeight(m1)
+console.log "m2 = " + m2
+console.log "totalWeight(m2) = " + totalWeight(m2)
+console.log "mb = " + mb
+console.log "balanced(mb) = " + balanced(mb)
+console.log "balanced(makeBranch(lb, lb)) = " + balanced(makeBranch(lb, lb))
