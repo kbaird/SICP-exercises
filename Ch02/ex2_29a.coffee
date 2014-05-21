@@ -9,17 +9,18 @@ class Branch
     # @structure may be a Mobile or an Integer
 
   display: ->
-    "Branch(length: " + @length + ", structure: " + @structure + ")"
+    structureDisplay = if @structure.display? then @structure.display() else @structure
+    "Branch(length: " + @length + ", structure: " + structureDisplay + ")"
 
   isBalanced: ->
-    if (@structure instanceof Mobile) then @structure.isBalanced() else true
+    if @structure.mobile? then @structure.isBalanced() else true
 
   torque: ->
     @length * @weight()
 
   weight: ->
     return @structure if @structure.length is 2
-    if (@structure instanceof Mobile) then @structure.weight() else @structure
+    if @structure.mobile? then @structure.weight() else @structure
 
 class Mobile
   constructor: (@leftBranch, @rightBranch) ->
@@ -29,6 +30,8 @@ class Mobile
 
   isBalanced: ->
     @_equalTorque() and @leftBranch.isBalanced() and @rightBranch.isBalanced()
+
+  mobile: -> true
 
   weight: ->
     @leftBranch.weight() + @rightBranch.weight()
