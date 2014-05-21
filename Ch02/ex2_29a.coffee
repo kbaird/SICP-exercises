@@ -6,13 +6,13 @@ SICP in CoffeeScript:
 
 class Branch
   constructor: (@length, @structure) ->
-    # @structure may be a Mobile
+    # @structure may be a Mobile or an Integer
 
   display: ->
     "Branch(length: " + @length + ", structure: " + @structure + ")"
 
   isBalanced: ->
-    if @structure.length is 2 then @structure.isBalanced() else true
+    if (@structure instanceof Mobile) then @structure.isBalanced() else true
 
   torque: ->
     @length * @weight()
@@ -34,9 +34,6 @@ class Mobile
     @leftBranch.weight() + @rightBranch.weight()
 
   # Private Methods
-  _arrayEqual: (a, b) ->
-    a.length is b.length and a.every (elem, i) -> elem is b[i]
-
   _equalTorque: ->
     (@leftBranch.length is @rightBranch.length) and
       (@leftBranch.structure is @rightBranch.structure)
@@ -45,7 +42,7 @@ lb = new Branch(3, 1)
 rb = new Branch(2, 1)
 m1 = new Mobile(lb, rb)
 m2 = new Mobile(lb, new Branch(4, m1))
-mb = new Mobile(lb, lb)
+mb = new Mobile(new Branch(3,1), new Branch(3,1))
 
 console.log "m1 = " + m1.display()
 console.log "m1.isBalanced = " + m1.isBalanced()
