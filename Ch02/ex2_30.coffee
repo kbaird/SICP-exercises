@@ -21,23 +21,13 @@ SICP in CoffeeScript:
 (define tree (list 1 (list 2 (list 3 4) 5) (list 6 7)))
 ###
 
-squareTree1 = (tree) ->
-  innerSquareTree1 = (subTree) ->
-    [head, tail...] = subTree
-    [].concat(head).concat(squareTree1(tail))
-  if (not tree?) then [] else
-    if (tree.length is 1 and typeof tree is 'number') then tree * tree else innerSquareTree1(tree)
-
-squareTree2 = (tree) ->
+squareTree = (tree) ->
   sq = (subTree) ->
-    if subTree.length > 1 then squareTree2(subTree) else subTree * subTree
+    if subTree.length > 1 then squareTree(subTree) else subTree * subTree
   sq(x) for x in tree
 
 t1 = [1, [2, [3, 4], 5], [6, 7]]
 
-#console.log squareTree1(t1)
-#console.log squareTree1([6, 7])
-#console.log squareTree1([[6, 7]])
-console.log squareTree2(t1)
-console.log squareTree2([6, 7])
-console.log squareTree2([[6, 7]])
+console.log squareTree(t1)
+#console.log squareTree([6, 7])
+#console.log squareTree([[6, 7]])
