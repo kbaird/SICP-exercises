@@ -24,8 +24,10 @@ accumulate = (op, initial, sequence) ->
     [head, tail...] = sequence
     op(head, accumulate(op, initial, tail))
 
+cons = (x, y) -> [x].concat(y)
+
 myMap = (p, sequence) ->
-  op = (x, y) -> [p(x), y]
+  op = (x, y) -> cons(p(x), y)
   accumulate(op, [], sequence)
 
 myAppend = (seq1, seq2) ->
@@ -40,5 +42,5 @@ l2 = [3, 4, 5, 6]
 
 double = (x) -> x * 2
 console.log myMap(double, l1)
-#console.log myAppend(l1, l2)
+console.log myAppend(l1, l2)
 console.log myLength(l1)
