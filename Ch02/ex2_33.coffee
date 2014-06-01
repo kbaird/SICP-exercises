@@ -19,12 +19,19 @@ SICP in CoffeeScript:
   (accumulate (lambda (x y) (+ y 1)) 0 sequence))
 ###
 
-accumulate = (op, initial, sequence) ->
-  if sequence.length is 0 then initial else
-    [head, tail...] = sequence
-    op(head, accumulate(op, initial, tail))
+car  = (l) ->
+  [head, tail...] = l
+  head
+
+cdr  = (l) ->
+  [head, tail...] = l
+  tail
 
 cons = (x, y) -> [x].concat(y)
+
+accumulate = (op, initial, sequence) ->
+  if sequence.length is 0 then initial else
+    op(car(sequence), accumulate(op, initial, cdr(sequence)))
 
 myMap = (p, sequence) ->
   op = (x, y) -> cons(p(x), y)
