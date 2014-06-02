@@ -19,15 +19,9 @@ SICP in CoffeeScript:
   (accumulate (lambda (x y) (+ y 1)) 0 sequence))
 ###
 
-car  = (l) ->
-  [head, tail...] = l
-  head
-
-cdr  = (l) ->
-  [head, tail...] = l
-  tail
-
-cons = (x, y) -> [x].concat(y)
+car  = require('./lib/lispy').car
+cdr  = require('./lib/lispy').cdr
+cons = require('./lib/lispy').cons
 
 accumulate = (op, initial, sequence) ->
   if sequence.length is 0 then initial else
