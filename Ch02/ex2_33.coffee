@@ -27,6 +27,9 @@ l1 = [0, 1, 2]
 l2 = [3, 4, 5, 6]
 
 double = (x) -> x * 2
+
+exports.accumulate = accumulate
+
 console.log myMap(double, l1)
 console.log myAppend(l1, l2)
 console.log myLength(l1)
