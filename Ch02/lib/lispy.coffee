@@ -10,6 +10,11 @@ cdr  = (l) ->
 
 cons = (x, y) -> [x].concat(y)
 
-exports.car  = car
-exports.cdr  = cdr
-exports.cons = cons
+accumulate = (op, initial, sequence) ->
+  if sequence.length is 0 then initial else
+    op(car(sequence), accumulate(op, initial, cdr(sequence)))
+
+exports.car        = car
+exports.cdr        = cdr
+exports.cons       = cons
+exports.accumulate = accumulate
