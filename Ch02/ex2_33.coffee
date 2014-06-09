@@ -7,10 +7,7 @@ SICP in CoffeeScript:
 car  = require('./lib/lispy').car
 cdr  = require('./lib/lispy').cdr
 cons = require('./lib/lispy').cons
-
-accumulate = (op, initial, sequence) ->
-  if sequence.length is 0 then initial else
-    op(car(sequence), accumulate(op, initial, cdr(sequence)))
+accumulate = require('./lib/lispy').accumulate
 
 myMap = (p, sequence) ->
   op = (x, y) -> cons(p(x), y)
