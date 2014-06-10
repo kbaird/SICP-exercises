@@ -4,13 +4,10 @@ SICP in CoffeeScript:
   Exercise 2.34 - Horner's Rule
 ###
 
-car  = require('./lib/lispy').car
-cdr  = require('./lib/lispy').cdr
-cons = require('./lib/lispy').cons
-
-accumulate = (op, initial, sequence) ->
-  if sequence.length is 0 then initial else
-    op(car(sequence), accumulate(op, initial, cdr(sequence)))
+car        = require('./lib/lispy').car
+cdr        = require('./lib/lispy').cdr
+cons       = require('./lib/lispy').cons
+accumulate = require('./lib/lispy').accumulate
 
 hornerEval = (x, coefficientSequence) ->
   f = (thisCoeff, higherTerms) ->
