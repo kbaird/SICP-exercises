@@ -1,7 +1,7 @@
 (*
 Kevin C. Baird
 SICP in Standard ML:
-    Exercise 2.2 - Represent line segments on a place.
+    Exercise 2.2 - Represent line segments on a plane.
 *)
 
 use "./lib/point.sml";
