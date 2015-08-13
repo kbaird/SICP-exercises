@@ -2,20 +2,22 @@
 
 defmodule CountChange do
   def count_change amount do
-    # Assume US coinage (five types of coins), and call hidden cc() function.
-    cc(amount, 5)
+    # Assume US coinage (five types of coins), and call private function.
+    count_change(amount, 5)
   end
-  defp cc 0, _ do
+
+# Private functions
+  defp count_change 0, _ do
     1 # There is only one (empty) way to make change for no money at all.
   end
-  defp cc _, 0 do
+  defp count_change _, 0 do
     0 # There is no way to make change when there are no coin types available.
   end
-  defp cc(amount, kinds_of_coins) do
+  defp count_change(amount, kinds_of_coins) do
     case (amount < 0) do
       true  -> 0 # There is no way to make change for a negative amount of money.
-      false -> cc(amount, kinds_of_coins - 1) +
-        cc(amount - first_denomination(kinds_of_coins), kinds_of_coins)
+      false -> count_change(amount, kinds_of_coins - 1) +
+        count_change(amount - first_denomination(kinds_of_coins), kinds_of_coins)
     end
   end
   defp first_denomination(1) do 1  end

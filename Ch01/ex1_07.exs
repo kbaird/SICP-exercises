@@ -2,13 +2,13 @@
 # rather than being a constant value.
 
 defmodule Ex1_07 do
-  def sqrt(x) do
-    sqrt(1.0, x)
-  end
+  def sqrt(x) do sqrt(1.0, x) end
+
+# Private functions
   defp sqrt guess, x do
-    cond do
-      good_enough(guess, x) -> guess
-      true                  -> sqrt(improve(guess, x), x)
+    case good_enough(guess, x) do
+      true  -> guess
+      false -> sqrt(improve(guess, x), x)
     end
   end
   defp average x, y do
