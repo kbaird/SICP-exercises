@@ -13,12 +13,13 @@ defmodule CountChange do
   defp count_change _, 0 do
     0 # There is no way to make change when there are no coin types available.
   end
+  defp count_change(amount, _) when (amount < 0) do
+    0 # There is no way to make change for a negative amount of money.
+  end
+  # in all other cases...
   defp count_change(amount, kinds_of_coins) do
-    case (amount < 0) do
-      true  -> 0 # There is no way to make change for a negative amount of money.
-      false -> count_change(amount, kinds_of_coins - 1) +
-        count_change(amount - first_denomination(kinds_of_coins), kinds_of_coins)
-    end
+    count_change(amount, kinds_of_coins - 1) +
+      count_change(amount - first_denomination(kinds_of_coins), kinds_of_coins)
   end
   defp first_denomination(1) do 1  end
   defp first_denomination(2) do 5  end
@@ -27,3 +28,4 @@ defmodule CountChange do
   defp first_denomination(5) do 50 end
 end
 
+IO.puts CountChange.count_change(100)
