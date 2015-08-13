@@ -1,6 +1,6 @@
 -module(ex2_03).
 -author("Kevin C. Baird").
--purpose("SICP in Erlang: Exercise 2.3 - Represent rectangle on a place.").
+-purpose("SICP in Erlang: Exercise 2.3 - Represent rectangle on a plane.").
 -export([make_rectangle/4, perimeter/1, area/1]).
 
 % creators

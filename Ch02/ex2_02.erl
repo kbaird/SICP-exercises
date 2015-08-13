@@ -1,6 +1,6 @@
 -module(ex2_02).
 -author("Kevin C. Baird").
--purpose("SICP in Erlang: Exercise 2.2 - Represent line segments on a place.").
+-purpose("SICP in Erlang: Exercise 2.2 - Represent line segments on a plane.").
 -export([make_point/2, make_segment/2, x_point/1, y_point/1, start_segment/1, end_segment/1, midpoint_segment/1]).
 
 % creators

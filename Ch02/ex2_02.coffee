@@ -1,7 +1,7 @@
 ###
 Kevin C. Baird
 SICP in CoffeeScript:
-    Exercise 2.2 - Represent line segments on a place.
+    Exercise 2.2 - Represent line segments on a plane.
 ###
 
 Point   = require('./lib/point').Point
