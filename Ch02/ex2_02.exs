@@ -1,9 +1,9 @@
 # SICP in Erlang: Exercise 2.2 - Represent line segments on a plane
 
 defmodule Point do
-  def new(x, y), do: ({:point, x, y})
-  def x({:point, x, _}), do: (x)
-  def y({:point, _, y}), do: (y)
+  def new(x, y), do: {:point, x, y}
+  def x({:point, x, _}), do: x
+  def y({:point, _, y}), do: y
 end
 
 defmodule Segment do
@@ -21,7 +21,7 @@ defmodule Segment do
   end
 
   # Private functions
-  defp average(x, y), do: ((x + y) / 2)
+  defp average(x, y), do: (x + y) / 2
 end
 
 pt1 = Point.new(0,0)
