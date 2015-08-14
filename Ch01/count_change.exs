@@ -21,11 +21,9 @@ defmodule Change do
     count(amount, kinds_of_coins - 1) +
       count(amount - first_denomination(kinds_of_coins), kinds_of_coins)
   end
-  defp first_denomination(1) do 1  end
-  defp first_denomination(2) do 5  end
-  defp first_denomination(3) do 10 end
-  defp first_denomination(4) do 25 end
-  defp first_denomination(5) do 50 end
+  defp first_denomination idx do
+    %{ 1 => 1, 2 => 5, 3 => 10, 4 => 25, 5 => 50 }[idx]
+  end
 end
 
 IO.puts Change.count(100)

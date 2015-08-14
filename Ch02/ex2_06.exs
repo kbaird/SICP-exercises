@@ -6,8 +6,8 @@ defmodule Ex2_06 do
   end
 
   # Private functions
-  defp inner_encode(_, 0, x) do x end
-  defp inner_encode(f, n, x) do
+  defp inner_encode(_, 0, x), do: (x)
+  defp inner_encode(f, n, x)  do
     f.(inner_encode(f, n-1, x))
   end
 end

@@ -1,18 +1,22 @@
 # SICP in Erlang: Exercise 2.3 - Represent rectangle on a plane
 
 defmodule Point do
-  def new x, y do {:point, x, y} end
+  def new(x, y), do: ({:point, x, y})
   def distance pt1, pt2 do
     :math.sqrt(square(diff(:x, pt1, pt2)) +
                square(diff(:y, pt1, pt2)))
   end
-  def x {:point, x, _} do x end
-  def y {:point, _, y} do y end
+  def x({:point, x, _}), do: (x)
+  def y({:point, _, y}), do: (y)
 
 # Private functions
-  defp square x do x * x end
-  defp diff :x, {:point, x1, _}, {:point, x2, _} do x2 - x1 end
-  defp diff :y, {:point, _, y1}, {:point, _, y2} do y2 - y1 end
+  defp square(x), do: (x * x)
+  defp diff :x, {:point, x1, _}, {:point, x2, _} do
+    x2 - x1
+  end
+  defp diff :y, {:point, _, y1}, {:point, _, y2} do
+    y2 - y1
+  end
 end
 
 defmodule Rectangle do

@@ -2,7 +2,7 @@
 # rather than being a constant value.
 
 defmodule Ex1_07 do
-  def sqrt(x) do sqrt(1.0, x) end
+  def sqrt(x), do: (sqrt(1.0, x))
 
 # Private functions
   defp sqrt guess, x do
@@ -20,11 +20,8 @@ defmodule Ex1_07 do
   defp improve guess, x do
     average(guess, (x/guess))
   end
-  defp square x do
-    x * x
-  end
-  defp tolerance x do
-    x * 0.001
-  end
+  defp square(x),    do: (x * x)
+  defp tolerance(x), do: (x * 0.001)
 end
 
+IO.puts Ex1_07.sqrt(2)

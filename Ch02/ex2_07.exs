@@ -35,8 +35,12 @@ defmodule Interval do
     ((lower >= 0) and (upper <= 0)) or
     ((lower <= 0) and (upper >= 0))
   end
-  defp sub_lower {:interval, l1, _}, {:interval, l2, _} do l1 - l2 end
-  defp sub_upper {:interval, _, u1}, {:interval, _, u2} do u1 - u2 end
+  defp sub_lower {:interval, l1, _}, {:interval, l2, _} do
+    l1 - l2
+  end
+  defp sub_upper {:interval, _, u1}, {:interval, _, u2} do
+    u1 - u2
+  end
 end
 
 i1 = Interval.new(1,5)
