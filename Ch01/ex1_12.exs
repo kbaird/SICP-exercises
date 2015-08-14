@@ -10,8 +10,8 @@ defmodule Ex1_12 do
 
   # Private functions
   defp summed_pairs row_num do
-    previous_row = pascals_triangle(row_num - 1)
-    summed_pairs_from_list(previous_row)
+    pascals_triangle(row_num - 1)
+      |> summed_pairs_from_list
   end
 
   defp summed_pairs_from_list([]),    do: ([])
