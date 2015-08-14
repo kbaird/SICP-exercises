@@ -1,10 +1,10 @@
 # SICP in Elixir: Count the number of ways to make change
 
 defmodule Change do
+  @coin_type_count 5 # Assume US coinage (five types of coins)
   @denomination_at %{ 1 => 1, 2 => 5, 3 => 10, 4 => 25, 5 => 50 }
   def count amount do
-    # Assume US coinage (five types of coins), and call private function.
-    count(amount, 5)
+    count(amount, @coin_type_count)
   end
 
 # Private functions
