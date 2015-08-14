@@ -16,12 +16,10 @@ y_point(P)          -> P#point.y.
 start_segment(S)    -> S#segment.start_pt.
 end_segment(S)      -> S#segment.end_pt.
 midpoint_segment(S) ->
-  P1 = S#segment.start_pt,
-  P2 = S#segment.end_pt,
-  X1 = P1#point.x,
-  Y1 = P1#point.y,
-  X2 = P2#point.x,
-  Y2 = P2#point.y,
+  X1 = S#segment.start_pt#point.x,
+  Y1 = S#segment.start_pt#point.y,
+  X2 = S#segment.end_pt#point.x,
+  Y2 = S#segment.end_pt#point.y,
   make_point(average(X1,X2), average(Y1,Y2)).
 
 % hidden helpers
