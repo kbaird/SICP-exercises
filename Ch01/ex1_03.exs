@@ -6,8 +6,9 @@ defmodule Ex1_03 do
     [_, x, y] = Enum.sort([a, b, c])
     square(x) + square(y)
   end
-  defp square x do
-    x * x
-  end
+
+  # Private functions
+  defp square(x), do: x * x
 end
 
+IO.puts Ex1_03.sum_squares_2_largest(0, 1, 2)
