@@ -4,6 +4,10 @@
 -export([make_point/2, make_segment/2, x_point/1, y_point/1, start_segment/1, end_segment/1, midpoint_segment/1]).
 -include_lib("records.hrl").
 
+%% I'll keep this in module ex2_02 because of the pedagogical source,
+%% but I'd be inclined to use separate Point and Segment modules as in
+%% the Elixir and CoffeeScript for production code.
+
 % creators
 make_point(X, Y) -> #point{x=X,y=Y}.
 make_segment(#point{x=X1, y=Y1}, #point{x=X2, y=Y2}) ->
