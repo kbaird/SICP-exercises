@@ -1,4 +1,4 @@
-# SICP in Erlang: Exercise 2.2 - Represent line segments on a plane
+# SICP in Elixir: Exercise 2.2 - Represent line segments on a plane
 
 defmodule Point do
   def new(x, y), do: {:point, x, y}

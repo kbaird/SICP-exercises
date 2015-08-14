@@ -1,4 +1,4 @@
-# SICP in Erlang: Exercise 2.4 - cons, car, cdr
+# SICP in Elixir: Exercise 2.4 - cons, car, cdr
 
 defmodule Ex2_04 do
   def cons x, y do

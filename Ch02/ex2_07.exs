@@ -1,4 +1,4 @@
-# SICP in Erlang: Exercise 2.7-2.10 - Interval Arithmetic
+# SICP in Elixir: Exercise 2.7-2.10 - Interval Arithmetic
 
 defmodule Interval do
   def new lower, upper do

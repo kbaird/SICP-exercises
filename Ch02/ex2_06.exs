@@ -1,4 +1,4 @@
-# SICP in Erlang: Exercise 2.6 - Church Numerals
+# SICP in Elixir: Exercise 2.6 - Church Numerals
 
 defmodule Ex2_06 do
   def church_encode n do
