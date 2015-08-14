@@ -2,8 +2,7 @@
 -author("Kevin C. Baird").
 -purpose("SICP in Erlang: Exercise 2.2 - Represent line segments on a plane.").
 -export([make_point/2, make_segment/2, x_point/1, y_point/1, start_segment/1, end_segment/1, midpoint_segment/1]).
--record(point,   {x,y}).
--record(segment, {start_pt,end_pt}).
+-include_lib("records.hrl").
 
 % creators
 make_point(X, Y) -> #point{x=X,y=Y}.
