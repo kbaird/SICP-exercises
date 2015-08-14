@@ -9,5 +9,5 @@ defmodule Pair do
   # Private functions
 end
 
-IO.puts Pair.last([0, 1, 2, 3])
-
+result = Pair.last([0, 1, 2, 3])
+unless result == [2, 3], do: throw result
