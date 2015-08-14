@@ -18,26 +18,21 @@ mult_interval(I1, I2) -> make_interval(lists:min(products(I1, I2)), lists:max(pr
 
 sub_interval(I1, I2)  -> make_interval(sub_lower(I1, I2), sub_upper(I1, I2)).
 
-width(I) -> (I#interval.upper - I#interval.lower) / 2.0.
+width(#interval{lower=Lower,upper=Upper}) -> (Upper - Lower) / 2.0.
 
 % helper_methods
-add_lower(I1, I2) -> I1#interval.lower + I2#interval.lower.
-add_upper(I1, I2) -> I1#interval.upper + I2#interval.upper.
+add_lower(#interval{lower=L1},#interval{lower=L2}) -> L1 + L2.
+add_upper(#interval{upper=U1},#interval{upper=U2}) -> U1 + U2.
 
-products(I1, I2) ->
-  L1 = I1#interval.lower,
-  U1 = I1#interval.upper,
-  L2 = I2#interval.lower,
-  U2 = I2#interval.upper,
+products(#interval{lower=L1,upper=U1},#interval{lower=L2,upper=U2}) ->
   [L1 * L2, L1 * U2, U1 * L2, U1 * U2].
 
-recip(I) -> make_interval((1.0 / I#interval.lower), (1.0 / I#interval.upper)).
+recip(#interval{lower=Lower,upper=Upper}) ->
+  make_interval((1.0 / Lower), (1.0 / Upper)).
 
-spans_zero(I) ->
-  [L, U] = [I#interval.lower, I#interval.upper],
-  ((L >= 0) and (U =< 0)) or
-  ((L =< 0) and (U >= 0)).
+spans_zero(#interval{lower=Lower,upper=Upper}) ->
+  ((Lower >= 0) and (Upper =< 0)) or
+  ((Lower =< 0) and (Upper >= 0)).
 
-sub_lower(I1, I2) -> I1#interval.lower - I2#interval.lower.
-sub_upper(I1, I2) -> I1#interval.upper - I2#interval.upper.
-
+sub_lower(#interval{lower=L1},#interval{lower=L2}) -> L1 - L2.
+sub_upper(#interval{upper=U1},#interval{upper=U2}) -> U1 - U2.

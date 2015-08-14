@@ -7,19 +7,15 @@
 
 % creators
 make_point(X, Y) -> #point{x=X,y=Y}.
-make_segment({point, X1, Y1}, {point, X2, Y2}) ->
+make_segment(#point{x=X1, y=Y1}, #point{x=X2, y=Y2}) ->
   #segment{start_pt=make_point(X1,Y1), end_pt=make_point(X2, Y2)}.
 
 % extractors
-x_point(P)          -> P#point.x.
-y_point(P)          -> P#point.y.
-start_segment(S)    -> S#segment.start_pt.
-end_segment(S)      -> S#segment.end_pt.
-midpoint_segment(S) ->
-  X1 = S#segment.start_pt#point.x,
-  Y1 = S#segment.start_pt#point.y,
-  X2 = S#segment.end_pt#point.x,
-  Y2 = S#segment.end_pt#point.y,
+x_point(#point{x=X}) -> X.
+y_point(#point{y=Y}) -> Y.
+start_segment(#segment{start_pt=P}) -> P.
+end_segment(#segment{end_pt=P})     -> P.
+midpoint_segment(#segment{start_pt=#point{x=X1,y=Y1},end_pt=#point{x=X2,y=Y2}}) ->
   make_point(average(X1,X2), average(Y1,Y2)).
 
 % hidden helpers
