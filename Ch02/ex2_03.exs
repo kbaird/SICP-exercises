@@ -19,21 +19,23 @@ defmodule Point do
 end
 
 defmodule Rectangle do
+  defstruct ul: nil, ur: nil, ll: nil, lr: nil
   def new %Point{x: x1, y: y1},
           %Point{x: x2, y: y2},
           %Point{x: x3, y: y3},
           %Point{x: x4, y: y4} do
-    {:rectangle, %Point{x: x1, y: y1},
-                 %Point{x: x2, y: y2},
-                 %Point{x: x3, y: y3},
-                 %Point{x: x4, y: y4}}
+    %Rectangle{
+      ul: %Point{x: x1, y: y1},
+      ur: %Point{x: x2, y: y2},
+      ll: %Point{x: x3, y: y3},
+      lr: %Point{x: x4, y: y4}}
   end
 
-  def area {:rectangle, ul, ur, _ll, lr} do
+  def area %Rectangle{ul: ul, ur: ur, lr: lr} do
     Point.distance(ul, ur) * Point.distance(ur, lr)
   end
 
-  def perimeter {:rectangle, ul, ur, _ll, lr} do
+  def perimeter %Rectangle{ul: ul, ur: ur, lr: lr} do
     (Point.distance(ul, ur) + Point.distance(ur, lr)) * 2.0
   end
 end
