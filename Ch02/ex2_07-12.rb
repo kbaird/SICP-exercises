@@ -16,7 +16,7 @@ require 'rspec'
 
 class Range
 
-  def self.make(center:, percent: 100,width: nil)
+  def self.make(center: percent: 100, width: nil)
     width ||= (center * percent) / 100.0
     (center - width)..(center + width)
   end
