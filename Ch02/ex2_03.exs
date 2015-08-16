@@ -1,33 +1,32 @@
 # SICP in Elixir: Exercise 2.3 - Represent rectangle on a plane
 
 defmodule Point do
-  def new(x, y), do: {:point, x, y}
+  defstruct x: nil, y: nil
+  def new(x, y), do: %Point{x: x, y: y}
   def distance pt1, pt2 do
     :math.sqrt(square(diff(:x, pt1, pt2)) +
                square(diff(:y, pt1, pt2)))
   end
-  def x({:point, x, _}), do: x
-  def y({:point, _, y}), do: y
 
 # Private functions
   defp square(x), do: x * x
-  defp diff :x, {:point, x1, _}, {:point, x2, _} do
+  defp diff :x, %Point{x: x1}, %Point{x: x2} do
     x2 - x1
   end
-  defp diff :y, {:point, _, y1}, {:point, _, y2} do
+  defp diff :y, %Point{y: y1}, %Point{y: y2} do
     y2 - y1
   end
 end
 
 defmodule Rectangle do
-  def new {:point, x1, y1},
-          {:point, x2, y2},
-          {:point, x3, y3},
-          {:point, x4, y4} do
-    {:rectangle, {:point, x1, y1},
-                 {:point, x2, y2},
-                 {:point, x3, y3},
-                 {:point, x4, y4}}
+  def new %Point{x: x1, y: y1},
+          %Point{x: x2, y: y2},
+          %Point{x: x3, y: y3},
+          %Point{x: x4, y: y4} do
+    {:rectangle, %Point{x: x1, y: y1},
+                 %Point{x: x2, y: y2},
+                 %Point{x: x3, y: y3},
+                 %Point{x: x4, y: y4}}
   end
 
   def area {:rectangle, ul, ur, _ll, lr} do
