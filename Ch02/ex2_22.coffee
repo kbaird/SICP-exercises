@@ -4,9 +4,8 @@ SICP in CoffeeScript:
   Exercise 2.22 - Make square-list iterative
 ###
 
-reverse = (list) ->
-  if list.length is 0 then [] else
-    [head, tail...] = list
+reverse = (head, tail...) ->
+  if (not head?) then [] else
     if tail.length is 0 then [head] else reverse(tail).concat head
 
 squareListIter = (items) ->
