@@ -1,5 +1,6 @@
 # SICP in Elixir: Exercise 2.7-2.10 - Interval Arithmetic
 
+# TODO: either use defstruct, and/or use native Elixir ranges
 defmodule Interval do
   def new lower, upper do
     {:interval, lower, upper}
