@@ -1,11 +1,10 @@
 # SICP in Elixir: Exercise 2.7-2.10 - Interval Arithmetic
 
-# TODO: either use defstruct, and/or use native Elixir ranges
 defmodule Interval do
   def new lower, upper do
-    {:interval, lower, upper}
+    lower..upper
   end
-  def add {:interval, l1, u1}, {:interval, l2, u2} do
+  def add l1..u1, l2..u2 do
     new(l1+l2, u1+u2)
   end
   def div i1, i2 do
@@ -21,25 +20,25 @@ defmodule Interval do
   def sub i1, i2 do
     new(sub_lower(i1, i2), sub_upper(i1, i2))
   end
-  def width {:interval, lower, upper} do
+  def width lower..upper do
     (upper - lower) / 2.0
   end
 
   # Private functions
-  def products {:interval, l1, u1}, {:interval, l2, u2} do
+  def products l1..u1, l2..u2 do
     [l1 * l2, l1 * u2, u1 * l2, u1 * u2]
   end
-  def recip {:interval, lower, upper} do
+  def recip lower..upper do
     new(1.0 / lower, 1.0 / upper)
   end
-  defp spans_zero? {:interval, lower, upper} do
+  defp spans_zero? lower..upper do
     ((lower >= 0) and (upper <= 0)) or
     ((lower <= 0) and (upper >= 0))
   end
-  defp sub_lower {:interval, l1, _}, {:interval, l2, _} do
+  defp sub_lower l1.._, l2.._ do
     l1 - l2
   end
-  defp sub_upper {:interval, _, u1}, {:interval, _, u2} do
+  defp sub_upper _..u1, _..u2 do
     u1 - u2
   end
 end
