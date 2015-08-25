@@ -2,7 +2,7 @@
 -author("Kevin C. Baird").
 -purpose("SICP in Erlang: Exercise 2.7-2.10 - Interval Arithmetic").
 -export([add_interval/2, mult_interval/2, div_interval/2, make_interval/2, sub_interval/2, width/1]).
--record (interval, {lower,upper}).
+-include_lib("records.hrl").
 
 make_interval(Lower, Upper) -> #interval{lower=Lower, upper=Upper}.
 
