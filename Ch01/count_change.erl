@@ -2,6 +2,7 @@
 -author("Kevin C. Baird").
 -purpose("SICP in Erlang: Count the number of ways to make change").
 -export([count_change/1]).
+-include_lib("eunit/include/eunit.hrl").
 
 % Assume US coinage (five types of coins), and call hidden cc() function.
 count_change(Amount) -> cc(Amount, 5).
@@ -23,3 +24,6 @@ first_denomination(3) -> 10;
 first_denomination(4) -> 25;
 first_denomination(5) -> 50.
 
+%% TESTS
+
+basic_result_test() -> ?assertEqual(292, count_change(100)).
