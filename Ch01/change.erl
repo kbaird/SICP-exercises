@@ -5,8 +5,8 @@
 -include_lib("eunit/include/eunit.hrl").
 
 count(Amount) ->
-  Pid = spawn(change, loop, []),
-  Pid ! {self(), Amount, 5}, % Assume US coinage (five types of coins), and call hidden count/2, via loop.
+  register(change, spawn(change, loop, [])),
+  change ! {self(), Amount, 5}, % Assume US coinage (five types of coins), and call hidden count/2, via loop.
   receive
     {Pid, Msg} ->
       Pid ! stop, % stop after one execution
