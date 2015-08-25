@@ -18,9 +18,7 @@ loop() ->
   receive
     {From, Amount, Kinds} ->
       From ! {self(), count(Amount, Kinds)},
-      loop();
-    stop ->
-      true
+      loop()
   end.
 
 %% PRIVATE FUNCTIONS
