@@ -4,10 +4,9 @@
 -export([count/1, loop/0]).
 -include_lib("eunit/include/eunit.hrl").
 
-% Assume US coinage (five types of coins), and call hidden count/2, via loop.
 count(Amount) ->
-  Pid = spawn(echo, loop, []),
-  Pid ! {self(), Amount, 5},
+  Pid = spawn(change, loop, []),
+  Pid ! {self(), Amount, 5}, % Assume US coinage (five types of coins), and call hidden count/2, via loop.
   receive
     {Pid, Msg} ->
       Pid ! stop, % stop after one execution
