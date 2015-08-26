@@ -2,7 +2,7 @@
 -author("Kevin C. Baird").
 -purpose("SICP in Erlang: Exercise 2.3 - Represent rectangle on a plane.").
 -export([make_rectangle/4, perimeter/1, area/1]).
--import(ex2_03, [make_point/2, x_point/1, y_point/1]).
+-import(ex2_02, [make_point/2, x_point/1, y_point/1]).
 -include_lib("records.hrl").
 
 % creators
