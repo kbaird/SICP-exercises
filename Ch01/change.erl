@@ -42,3 +42,4 @@ first_denomination(5) -> 50.
 %% TESTS
 
 basic_result_test() -> ?assertEqual(292, change:count(100)).
+no_money_test()     -> ?assertEqual(1,   change:count(0)).
