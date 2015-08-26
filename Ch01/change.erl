@@ -1,24 +1,25 @@
 -module(change).
 -author("Kevin C. Baird").
 -purpose("SICP in Erlang: Count the number of ways to make change").
--export([count/1, loop/0]).
+-export([count/1]).
+% OTP expects these to be defined
+-export([handle_call/3, code_change/3, handle_cast/2, handle_info/2, init/1, terminate/2]).
 -include_lib("eunit/include/eunit.hrl").
+-behavior(gen_server).
 
 count(Amount) ->
-  Pid = spawn(change, loop, []),
-  Pid ! {self(), Amount, 5}, % Assume US coinage (five types of coins), and call hidden count/2, via loop.
-  receive
-    {Pid, Msg} ->
-      Pid ! stop, % stop after one execution
-      Msg
-  end.
+  gen_server:start_link({local, ?MODULE}, ?MODULE, [], []),
+  gen_server:call(?MODULE, {Amount, 5}).
 
-loop() ->
-  receive
-    {From, Amount, Kinds} ->
-      From ! {self(), count(Amount, Kinds)},
-      loop()
-  end.
+handle_call({Amount, Kinds}, _From, _LoopData) ->
+  {reply, count(Amount, Kinds), not_used}.
+
+% OTP expects these to be defined
+code_change(_, _, _) -> {error, not_implemented}.
+handle_cast(_, _)    -> {error, not_implemented}.
+handle_info(_, _)    -> {error, not_implemented}.
+init(_Amount)        -> {ok, null}.
+terminate(_, _)      -> {error, not_implemented}.
 
 %% PRIVATE FUNCTIONS
 
@@ -29,10 +30,12 @@ count(Amount, _) when (Amount < 0) -> 0; % There is no way to make change for a 
 
 % In all other cases...
 count(Amount, Kinds_Of_Coins) ->
-  count(Amount, Kinds_Of_Coins - 1) +
-  count(Amount - first_denomination(Kinds_Of_Coins), Kinds_Of_Coins).
+  ReducedSet    = Kinds_Of_Coins - 1,
+  ReducedAmount = Amount - first_denomination(Kinds_Of_Coins),
+  count(Amount, ReducedSet) + count(ReducedAmount, Kinds_Of_Coins).
 
 % Define the coinage set as a hidden function.
+% I would have probably called this largest_coin().
 first_denomination(1) -> 1;
 first_denomination(2) -> 5;
 first_denomination(3) -> 10;
@@ -42,3 +45,4 @@ first_denomination(5) -> 50.
 %% TESTS
 
 basic_result_test() -> ?assertEqual(292, change:count(100)).
+no_money_test()     -> ?assertEqual(1,   change:count(0)).
