@@ -17,11 +17,11 @@ handle_call({Amount, Kinds}, _From, _LoopData) ->
   {reply, count(Amount, Kinds), not_used}.
 
 % OTP also expects these to be defined, but I am not using them yet
-code_change(_, _, _) -> {error, not_implemented}.
-handle_cast(_, _)    -> {error, not_implemented}.
-handle_info(_, _)    -> {error, not_implemented}.
+code_change(_, _, _) -> {error,   not_implemented}.
+handle_cast(_, _)    -> {noreply, not_implemented}.
+handle_info(_, _)    -> {noreply, not_implemented}.
 init(_)              -> {ok, null}.
-terminate(_, _)      -> {error, not_implemented}.
+terminate(_, _)      -> {noreply, not_implemented}.
 
 %% PRIVATE FUNCTIONS
 
