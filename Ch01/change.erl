@@ -1,9 +1,11 @@
 -module(change).
 -author("Kevin C. Baird").
 -purpose("SICP in Erlang: Count the number of ways to make change").
--export([count/1]).
-% OTP expects these to be defined
--export([handle_call/3, code_change/3, handle_cast/2, handle_info/2, init/1, terminate/2]).
+-export([count/1, handle_call/3]).
+
+% OTP also expects these to be defined, but I am not using them yet
+-export([code_change/3, handle_cast/2, handle_info/2, init/1, terminate/2]).
+
 -include_lib("eunit/include/eunit.hrl").
 -behavior(gen_server).
 
@@ -14,11 +16,11 @@ count(Amount) ->
 handle_call({Amount, Kinds}, _From, _LoopData) ->
   {reply, count(Amount, Kinds), not_used}.
 
-% OTP expects these to be defined
+% OTP also expects these to be defined, but I am not using them yet
 code_change(_, _, _) -> {error, not_implemented}.
 handle_cast(_, _)    -> {error, not_implemented}.
 handle_info(_, _)    -> {error, not_implemented}.
-init(_Amount)        -> {ok, null}.
+init(_)              -> {ok, null}.
 terminate(_, _)      -> {error, not_implemented}.
 
 %% PRIVATE FUNCTIONS
@@ -30,9 +32,9 @@ count(Amount, _) when (Amount < 0) -> 0; % There is no way to make change for a 
 
 % In all other cases...
 count(Amount, Kinds_Of_Coins) ->
-  ReducedSet    = Kinds_Of_Coins - 1,
-  ReducedAmount = Amount - first_denomination(Kinds_Of_Coins),
-  count(Amount, ReducedSet) + count(ReducedAmount, Kinds_Of_Coins).
+  ReducedSet = Kinds_Of_Coins - 1,
+  ReducedAmt = Amount - first_denomination(Kinds_Of_Coins),
+  count(Amount, ReducedSet) + count(ReducedAmt, Kinds_Of_Coins).
 
 % Define the coinage set as a hidden function.
 % I would have probably called this largest_coin().
