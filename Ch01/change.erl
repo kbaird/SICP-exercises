@@ -11,7 +11,7 @@
 
 count(Amount) ->
   gen_server:start_link({local, ?MODULE}, ?MODULE, [], []),
-  gen_server:call(?MODULE, {Amount, 5}).
+  gen_server:call(?MODULE, {Amount, default_distinct_coin_count()}).
 
 handle_call({Amount, Kinds}, _From, _LoopData) ->
   {reply, count(Amount, Kinds), not_used}.
@@ -43,6 +43,8 @@ first_denomination(2) -> 5;
 first_denomination(3) -> 10;
 first_denomination(4) -> 25;
 first_denomination(5) -> 50.
+
+default_distinct_coin_count() -> 5.
 
 %% TESTS
 
