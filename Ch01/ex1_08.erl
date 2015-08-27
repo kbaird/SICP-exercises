@@ -13,8 +13,11 @@ cbrt(Guess, X) ->
     false -> cbrt(improve(Guess, X), X)
   end.
 
-good_enough( Guess, X ) -> (abs(cube(Guess) - X) < tolerance()).
-improve(     Guess, X ) -> (X / (square(Guess)) + (2 * Guess)) / 3.0.
+good_enough(Guess, X) ->
+  (abs(cube(Guess) - X) < tolerance()).
+
+improve(Guess, X) ->
+  (X / (square(Guess)) + (2 * Guess)) / 3.0.
 
 square(X)   -> X * X.
 cube(X)     -> X * X * X.
