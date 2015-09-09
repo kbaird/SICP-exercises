@@ -20,7 +20,7 @@ handle_call({Amount, Kinds}, _From, _LoopData) ->
 code_change(_, _, _) -> {error,   not_implemented}.
 handle_cast(_, _)    -> {noreply, not_implemented}.
 handle_info(_, _)    -> {noreply, not_implemented}.
-init(_)              -> {ok, null}.
+init(_)              -> {ok,      null}.
 terminate(_, _)      -> {noreply, not_implemented}.
 
 %% PRIVATE FUNCTIONS
