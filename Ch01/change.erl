@@ -10,7 +10,8 @@
 -behavior(gen_server).
 
 count(Amount) ->
-  gen_server:start_link({local, ?MODULE}, ?MODULE, [], []),
+  {InitArgs, Opts} = {[], []}, % http://www.erlang.org/doc/man/gen_server.html
+  gen_server:start_link({local, ?MODULE}, ?MODULE, InitArgs, Opts),
   gen_server:call(?MODULE, {Amount, default_distinct_coin_count()}).
 
 handle_call({Amount, Kinds}, _From, _LoopData) ->
