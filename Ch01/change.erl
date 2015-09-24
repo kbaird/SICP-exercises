@@ -9,12 +9,12 @@
 -behavior(gen_server).
 
 count(Amount) ->
-  {InitArgs, Opts} = {[], []}, % http://www.erlang.org/doc/man/gen_server.html
-  gen_server:start_link({local, ?MODULE}, ?MODULE, InitArgs, Opts),
-  gen_server:call(?MODULE, {Amount, default_distinct_coin_count()}).
+    {InitArgs, Opts} = {[], []}, % http://www.erlang.org/doc/man/gen_server.html
+    gen_server:start_link({local, ?MODULE}, ?MODULE, InitArgs, Opts),
+    gen_server:call(?MODULE, {Amount, default_distinct_coin_count()}).
 
 handle_call({Amount, Kinds}, _From, _LoopData) ->
-  {reply, count(Amount, Kinds), not_used}.
+    {reply, count(Amount, Kinds), not_used}.
 
 % OTP also expects these to be defined, but I am not using them yet
 code_change(_, _, _) -> {error,   not_implemented}.
@@ -32,9 +32,9 @@ count(Amount, _) when (Amount < 0) -> 0; % There is no way to make change for a 
 
 % In all other cases...
 count(Amount, Kinds_Of_Coins) ->
-  ReducedSet = Kinds_Of_Coins - 1,
-  ReducedAmt = Amount - first_denomination(Kinds_Of_Coins),
-  count(Amount, ReducedSet) + count(ReducedAmt, Kinds_Of_Coins).
+    ReducedSet = Kinds_Of_Coins - 1,
+    ReducedAmt = Amount - first_denomination(Kinds_Of_Coins),
+    count(Amount, ReducedSet) + count(ReducedAmt, Kinds_Of_Coins).
 
 % Define the coinage set as a hidden function.
 % I would have probably called this largest_coin().

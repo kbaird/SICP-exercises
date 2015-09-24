@@ -4,11 +4,11 @@
 -compile(export_all).
 
 sum_squares_2_largest(A, B, C) ->
-  ArgsL    = [A, B, C],
-  Lowest   = lists:min(ArgsL),
-  Square   = fun(X) -> X * X end,
-  SquaresL = lists:map(Square, ArgsL),
-  lists:sum(SquaresL) - Square(Lowest).
+    ArgsL    = [A, B, C],
+    Lowest   = lists:min(ArgsL),
+    Square   = fun(X) -> X * X end,
+    SquaresL = lists:map(Square, ArgsL),
+    lists:sum(SquaresL) - Square(Lowest).
 
 % squaring all three args and then subtracting the square (again) of the lowest
 % is not the most computationally efficient way to do this, but I wanted to show

@@ -5,28 +5,28 @@
 -include_lib("eunit/include/eunit.hrl").
 
 sqrt(X) ->
-  Pid = spawn(newton, loop, []),
-  Pid ! {self(), 1.0, X},
-  receive
-    {Pid, Msg} ->
-      Pid ! stop, % stop after one execution
-      Msg
-  end.
+    Pid = spawn(newton, loop, []),
+    Pid ! {self(), 1.0, X},
+    receive
+        {Pid, Msg} ->
+            Pid ! stop, % stop after one execution
+            Msg
+    end.
 
 %% HELPER FUNCTIONS
 
 loop() ->
-  receive
-    {From, Guess, X} ->
-      From ! {self(), sqrt(Guess, X)},
-      loop()
-  end.
+    receive
+        {From, Guess, X} ->
+            From ! {self(), sqrt(Guess, X)},
+            loop()
+    end.
 
 sqrt(Guess, X) ->
-  case good_enough(Guess, X) of
-    true  -> Guess;
-    false -> sqrt(improve(Guess, X), X)
-  end.
+    case good_enough(Guess, X) of
+        true  -> Guess;
+        false -> sqrt(improve(Guess, X), X)
+    end.
 
 good_enough(Guess, X) -> (abs(square(Guess) - X) < tolerance()).
 improve(Guess, X)     -> average(Guess, (X/Guess)).

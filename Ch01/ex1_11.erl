@@ -6,7 +6,7 @@
 %% Recursive, simple recursion, no hidden function.
 f_rec(N) when N < 3 -> N;
 f_rec(N) ->
-  f_rec(N-1) + (f_rec(N-2) * 2) + (f_rec(N-3) * 3).
+    f_rec(N-1) + (f_rec(N-2) * 2) + (f_rec(N-3) * 3).
 
 %% Iterative, delegates to helper function with greater arity.
 f_iter(N) -> f_iter(N, 0).
@@ -15,5 +15,5 @@ f_iter(N) -> f_iter(N, 0).
 
 f_iter(N, Sum) when N < 3 -> N + Sum;
 f_iter(N, Sum) ->
-  f_iter(N-1, Sum) + (f_iter(N-2, Sum) * 2) + (f_iter(N-3, Sum) * 3).
+    f_iter(N-1, Sum) + (f_iter(N-2, Sum) * 2) + (f_iter(N-3, Sum) * 3).
 

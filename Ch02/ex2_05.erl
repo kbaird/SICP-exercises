@@ -9,8 +9,8 @@ cdr(Z)     -> extract(Z, 0, 3).
 
 % helpers
 extract(Encoded, Candidate, Base) ->
-  case (Encoded rem Base) of
-    0 -> extract((Encoded div Base), (Candidate+1), Base);
-    _ -> Candidate
-  end.
+    case (Encoded rem Base) of
+        0 -> extract((Encoded div Base), (Candidate+1), Base);
+        _ -> Candidate
+    end.
 

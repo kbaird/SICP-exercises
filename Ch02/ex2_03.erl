@@ -7,21 +7,21 @@
 
 % creators
 make_rectangle({ul, X1, Y1}, {ur, X2, Y2}, {ll, X3, Y3}, {lr, X4, Y4}) ->
-  #rectangle{ul=make_point(X1,Y1),
-             ur=make_point(X2,Y2),
-             ll=make_point(X3,Y3),
-             lr=make_point(X4,Y4)}.
+    #rectangle{ul=make_point(X1,Y1),
+               ur=make_point(X2,Y2),
+               ll=make_point(X3,Y3),
+               lr=make_point(X4,Y4)}.
 
 % extractors
 area(#rectangle{ul=UL,ur=UR,lr=LR}) ->
-  (distance(UL, UR) * distance(UR, LR)).
+    (distance(UL, UR) * distance(UR, LR)).
 
 perimeter(#rectangle{ul=UL,ur=UR,lr=LR}) ->
-  (distance(UL, UR) + distance(UR, LR)) * 2.0.
+    (distance(UL, UR) + distance(UR, LR)) * 2.0.
 
 % hidden helpers
 distance(P1, P2) ->
-  math:sqrt(square(x_diff(P1, P2)) + square(y_diff(P1, P2))).
+    math:sqrt(square(x_diff(P1, P2)) + square(y_diff(P1, P2))).
 
 square(X) -> X * X.
 

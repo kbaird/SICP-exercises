@@ -4,7 +4,7 @@
 -export([church_encode/1]).
 
 church_encode(N) ->
-  fun(F) -> (fun(X) -> inner_encode(F, N, X) end) end.
+    fun(F) -> (fun(X) -> inner_encode(F, N, X) end) end.
 
 % helpers
 inner_encode(_, 0, X) -> X;

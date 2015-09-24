@@ -8,11 +8,11 @@ sqrt(X) -> sqrt(1.0, X).
 %% HELPER FUNCTIONS
 
 sqrt(Guess, X) ->
-  % calling a function within a guard expression seems to be illegal, so we stick with a case here.
-  case good_enough(Guess, X) of
-    true  -> Guess;
-    false -> sqrt(improve(Guess, X), X)
-  end.
+    % calling a function within a guard expression seems to be illegal, so we stick with a case here.
+    case good_enough(Guess, X) of
+        true  -> Guess;
+        false -> sqrt(improve(Guess, X), X)
+    end.
 
 good_enough( Guess, X ) -> (abs(square(Guess) - X) < tolerance(X)).
 improve(     Guess, X ) -> average(Guess, (X/Guess)).
