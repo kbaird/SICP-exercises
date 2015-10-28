@@ -28,7 +28,8 @@ terminate(_, _)      -> {noreply, not_implemented}.
 count(0, _) -> 1; % There is only one (empty) way to make change for no money at all.
 count(_, 0) -> 0; % There is no way to make change when there are no coin types available.
 
-count(Amount, _) when (Amount < 0) -> 0; % There is no way to make change for a negative amount of money.
+count(Amount, _) when (Amount < 0) -> 0; % There is no way to make change
+                                         % for a negative amount of money.
 
 % In all other cases...
 count(Amount, Kinds_Of_Coins) ->

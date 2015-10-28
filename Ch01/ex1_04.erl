@@ -1,6 +1,7 @@
 -module(ex1_04).
 -author("Kevin C. Baird").
--purpose("SICP in Erlang: Demonstrate an operator that is a compound procedure (i.e., not known at compile time).").
+-purpose("SICP in Erlang: Demonstrate an operator that is a compound procedure").
+% i.e., not known at compile time
 -export([a_plus_abs_b/2, a_plus_abs_b_alt/2]).
 
 a_plus_abs_b(A, B) ->

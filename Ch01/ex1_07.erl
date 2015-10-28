@@ -1,6 +1,6 @@
 -module(ex1_07).
 -author("Kevin C. Baird").
--purpose("SICP in Erlang: Redefine tolerance to vary based on the guess, rather than being a constant value.").
+-purpose("SICP in Erlang: Redefine tolerance to vary based on the guess, not constant value.").
 -export([sqrt/1]).
 
 sqrt(X) -> sqrt(1.0, X).
@@ -8,7 +8,8 @@ sqrt(X) -> sqrt(1.0, X).
 %% HELPER FUNCTIONS
 
 sqrt(Guess, X) ->
-    % calling a function within a guard expression seems to be illegal, so we stick with a case here.
+    % calling a function within a guard expression seems to be
+    % illegal, so we stick with a case here.
     case good_enough(Guess, X) of
         true  -> Guess;
         false -> sqrt(improve(Guess, X), X)

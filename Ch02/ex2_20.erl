@@ -10,6 +10,6 @@ same_parity([Hd|Tl]) ->
 
 %%% TESTS
 
-all_even_test() -> ?assert(same_parity([0,2,4,6,8]) =:= true).
-all_odd_test()  -> ?assert(same_parity([1,3,5,7,9]) =:= true).
-mixed_test()    -> ?assert(same_parity([0,1])       =:= false).
+all_even_test() -> ?assert(same_parity([0, 2, 4, 6, 8]) =:= true).
+all_odd_test()  -> ?assert(same_parity([1, 3, 5, 7, 9]) =:= true).
+mixed_test()    -> ?assert(same_parity([0, 1])          =:= false).

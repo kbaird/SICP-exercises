@@ -1,6 +1,6 @@
 -module(ex1_09).
 -author("Kevin C. Baird").
--purpose("SICP in Erlang: Exercise 1.9 - Define both a recursive and iterative process for addition").
+-purpose("SICP in Erlang: Exercise 1.9 - Define both recursive & iterative process for addition").
 -compile(export_all).
 
 inc(X) -> X + 1.

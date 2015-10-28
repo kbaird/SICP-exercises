@@ -7,16 +7,16 @@
 
 % creators
 make_rectangle({ul, X1, Y1}, {ur, X2, Y2}, {ll, X3, Y3}, {lr, X4, Y4}) ->
-    #rectangle{ul=make_point(X1,Y1),
-               ur=make_point(X2,Y2),
-               ll=make_point(X3,Y3),
-               lr=make_point(X4,Y4)}.
+    #rectangle{ul=make_point(X1, Y1),
+               ur=make_point(X2, Y2),
+               ll=make_point(X3, Y3),
+               lr=make_point(X4, Y4)}.
 
 % extractors
-area(#rectangle{ul=UL,ur=UR,lr=LR}) ->
+area(#rectangle{ul=UL, ur=UR, lr=LR}) ->
     (distance(UL, UR) * distance(UR, LR)).
 
-perimeter(#rectangle{ul=UL,ur=UR,lr=LR}) ->
+perimeter(#rectangle{ul=UL, ur=UR, lr=LR}) ->
     (distance(UL, UR) + distance(UR, LR)) * 2.0.
 
 % hidden helpers

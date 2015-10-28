@@ -14,7 +14,8 @@ square_list3(Xs) -> [ X * X || X <- Xs ].
 
 %%% TESTS
 
-sq1_test() -> ?assert(square_list1([0,1,2,3,4]) =:= [0,1,4,9,16]).
-sq2_test() -> ?assert(square_list2([0,1,2,3,4]) =:= [0,1,4,9,16]).
-sq3_test() -> ?assert(square_list3([0,1,2,3,4]) =:= [0,1,4,9,16]).
+sq1_test() -> generic_square_test(fun square_list1/1).
+sq2_test() -> generic_square_test(fun square_list2/1).
+sq3_test() -> generic_square_test(fun square_list3/1).
 
+generic_square_test(Fun) -> ?assert(Fun([0, 1, 2, 3, 4]) =:= [0, 1, 4, 9, 16]).
