@@ -9,10 +9,13 @@
 
 -behavior(gen_server).
 
+-define(US_COINS, [50, 25, 10, 5, 1]).
+-define(UK_COINS, [100, 50, 20, 10, 5, 1, 0.5]).
+
 count(Amount) ->
     {InitArgs, Opts} = {[], []}, % http://www.erlang.org/doc/man/gen_server.html
     gen_server:start_link({local, ?MODULE}, ?MODULE, InitArgs, Opts),
-    gen_server:call(?MODULE, {Amount, us_coins()}).
+    gen_server:call(?MODULE, {Amount, ?US_COINS}).
 
 handle_call({Amount, Coins}, _From, _LoopData) ->
     {reply, count(Amount, Coins), not_used}.
@@ -36,9 +39,6 @@ count(Amount, _) when (Amount < 0) -> 0; % There is no way to make change
 count(Amount, [BiggestCoin|ReducedSet] = Coins) ->
     ReducedAmt = Amount - BiggestCoin,
     count(Amount, ReducedSet) + count(ReducedAmt, Coins).
-
-us_coins() -> [50, 25, 10, 5, 1].
-%uk_coins() -> [100, 50, 20, 10, 5, 1, 0.5].
 
 %%% TESTS
 
