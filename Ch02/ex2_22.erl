@@ -15,4 +15,4 @@ square(X) -> X * X.
 
 %%% TESTS
 
-sq_test() -> ?assert(square_list([0, 1, 2, 3, 4]) =:= [0, 1, 4, 9, 16]).
+sq_test() -> ?assert(square_list(lists:seq(0,4)) =:= [0, 1, 4, 9, 16]).
