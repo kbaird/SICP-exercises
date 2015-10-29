@@ -5,10 +5,9 @@
 -include_lib("eunit/include/eunit.hrl").
 
 same_parity([Hd|Tl]) ->
-    SameParityPred = make_same_parity_pred(Hd),
-    lists:all(SameParityPred, Tl).
+    lists:all(same_parity_pred(Hd), Tl).
 
-make_same_parity_pred(Hd) ->
+same_parity_pred(Hd) ->
     fun(X) -> (X rem 2) =:= (Hd rem 2) end.
 
 %%% TESTS
