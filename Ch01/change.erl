@@ -2,6 +2,7 @@
 -author("Kevin C. Baird").
 -purpose("SICP in Erlang: Count the number of ways to make change").
 -export([count/1, handle_call/3]).
+-include_lib("eunit/include/eunit.hrl").
 
 % OTP also expects these to be defined, but I am not using them yet
 -export([code_change/3, handle_cast/2, handle_info/2, init/1, terminate/2]).
@@ -47,3 +48,7 @@ first_denomination(5) -> 50.
 
 default_distinct_coin_count() -> 5.
 
+%%% TESTS
+
+basic_result_test() -> ?assertEqual(292, change:count(100)).
+no_money_test()     -> ?assertEqual(1,   change:count(0)).
