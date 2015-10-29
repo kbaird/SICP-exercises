@@ -1,7 +1,7 @@
 -module(ex1_10).
 -author("Kevin C. Baird").
 -purpose("SICP in Erlang: Ackermann Function").
--compile(export_all).
+-export([ackermann/2, f/1, g/1, h/1, k/1]).
 
 ackermann(_, 0) -> 0;
 ackermann(0, Y) -> Y * 2;
