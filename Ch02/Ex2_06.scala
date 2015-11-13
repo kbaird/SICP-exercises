@@ -25,7 +25,7 @@ def churchEncode(n: Int) = {
 }
 
 def output() = {
-  "Not sure how to test this. It compiles with strong types, which isn't *nothing*..."
+  "Not sure how to test this. It compiles with static types, which isn't *nothing*..."
 }
 
 /**
