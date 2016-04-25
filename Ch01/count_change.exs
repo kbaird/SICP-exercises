@@ -26,9 +26,11 @@ defmodule Change do
     count(amount, kinds_of_coins - 1) +
       count(amount - first_denomination(kinds_of_coins), kinds_of_coins)
   end
+
   defp first_denomination idx do
     @denomination_at[idx]
   end
+
 end
 
 IO.puts Change.count(100)
