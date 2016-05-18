@@ -19,5 +19,5 @@ ratings:
   - "Ch0*/**.coffee"
   - "Ch0*/**.rb"
 exclude_paths: [
-  - "templates/template.*"
+  "templates/template.*"
 ]
