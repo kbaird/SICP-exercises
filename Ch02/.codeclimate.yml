@@ -25,5 +25,5 @@ ratings:
   - "**.py"
   - "**.rb"
 exclude_paths: [
-  - "templates"
+  - "templates/template.*"
 ]
