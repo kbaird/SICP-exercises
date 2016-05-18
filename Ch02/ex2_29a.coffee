@@ -9,7 +9,7 @@ class Branch
     # @structure may be a Mobile or an Integer
 
   display: ->
-    structureDisplay = if @structure.display? then @structure.display() else @structure
+    structureDisplay =  if @structure.display?  then @structure.display() else @structure
     "Branch(length: " + @length + ", structure: " + structureDisplay + ")"
 
   isBalanced: ->
