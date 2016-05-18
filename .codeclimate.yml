@@ -1,0 +1,23 @@
+---
+engines:
+  coffeelint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+      - python
+      - php
+  fixme:
+    enabled: false
+  rubocop:
+    enabled: true
+ratings:
+  paths:
+  - "Ch0*/**.coffee"
+  - "Ch0*/**.rb"
+exclude_paths: [
+  - "templates/template.*"
+]
