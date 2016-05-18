@@ -14,11 +14,11 @@ def cons(x,y)
 end
 
 def car(z)
-  z[->(p,q) { p }]
+  z[->(p,_q) { p }]
 end
 
 def cdr(z)
-  z[->(p,q) { q }]
+  z[->(_p,q) { q }]
 end
 
 describe "cons(1,2)" do

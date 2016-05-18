@@ -9,24 +9,24 @@ Exercise 2.6 - Church Numerals
 
 require 'rspec'
 
-zero = ->(f) do
+_zero = ->(_f) do
   ->(x) { x }
 end
 
-one = ->(f) do
+_one = ->(f) do
   ->(x) { f[x] }
 end
 
-two = ->(f) do
+_two = ->(f) do
   ->(x) { f[f[x]] }
 end
 
-church_encode = ->(n) do
+church_encode = ->(int) do
   inner_encode = ->(f,n,x) do
     n.zero? ? x : f[inner_encode[f,n-1,x]]
   end
   ->(f) do
-    ->(x) { inner_encode[f,n,x] }
+    ->(x) { inner_encode[f,int,x] }
   end
 end
 
