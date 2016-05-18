@@ -1,6 +1,5 @@
-TargetRubyVersion: 2.3
-
 AllCops:
+  TargetRubyVersion: 2.3
   DisabledByDefault: true
 
 #################### Lint ################################
