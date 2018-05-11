@@ -1,13 +1,13 @@
 # SICP in Elixir: Exercise 2.17 - last_pair
 
 defmodule Pair do
-  def last([]),       do: throw {:badarg, "Too few elements, minimum of 2."}
-  def last([_]),      do: throw {:badarg, "Too few elements, minimum of 2."}
-  def last([a, b]),   do: [a, b]
-  def last([_|tail]), do: last tail
+  def last([]), do: throw({:badarg, "Too few elements, minimum of 2."})
+  def last([_]), do: throw({:badarg, "Too few elements, minimum of 2."})
+  def last([a, b]), do: [a, b]
+  def last([_ | tail]), do: last(tail)
 
   # Private functions
 end
 
 result = Pair.last([0, 1, 2, 3])
-unless result == [2, 3], do: throw result
+unless result == [2, 3], do: throw(result)

@@ -11,4 +11,4 @@ defmodule Ex1_03 do
   defp square(x), do: x * x
 end
 
-IO.puts Ex1_03.sum_squares_2_largest(0, 1, 2)
+IO.puts(Ex1_03.sum_squares_2_largest(0, 1, 2))

@@ -6,10 +6,11 @@ defmodule Ex1_04 do
     op = get_op(b)
     op.(a, b)
   end
-  defp get_op b do
+
+  defp get_op(b) do
     cond do
-      b < 0 -> fn(x, y) -> x - y end
-      true  -> fn(x, y) -> x + y end
+      b < 0 -> fn x, y -> x - y end
+      true -> fn x, y -> x + y end
     end
   end
 end

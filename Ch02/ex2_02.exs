@@ -7,20 +7,21 @@ end
 
 defmodule Segment do
   defstruct start_pt: nil, end_pt: nil
-  def new %Point{x: x1, y: y1}, %Point{x: x2, y: y2} do
+
+  def new(%Point{x: x1, y: y1}, %Point{x: x2, y: y2}) do
     %Segment{start_pt: Point.new(x1, y1), end_pt: Point.new(x2, y2)}
   end
-  def mid_pt %Segment{start_pt: start_pt, end_pt: end_pt} do
-    Point.new(average(start_pt.x, end_pt.x),
-              average(start_pt.y, end_pt.y))
+
+  def mid_pt(%Segment{start_pt: start_pt, end_pt: end_pt}) do
+    Point.new(average(start_pt.x, end_pt.x), average(start_pt.y, end_pt.y))
   end
 
   # Private functions
   defp average(x, y), do: (x + y) / 2
 end
 
-pt1 = Point.new(0,0)
-pt2 = Point.new(3,4)
+pt1 = Point.new(0, 0)
+pt2 = Point.new(3, 4)
 pt1.x
 pt1.y
 pt2.x
