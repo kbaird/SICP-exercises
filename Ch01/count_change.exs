@@ -1,18 +1,9 @@
 # SICP in Elixir: Count the number of ways to make change
 
 defmodule Change do
-  # Assume US coinage
-  @denomination_at %{1 => 1, 2 => 5, 3 => 10, 4 => 25, 5 => 50}
-
-  def count(amount) do
-    count(amount, coin_type_count)
-  end
+  def count(amount), do: count(amount, 5)
 
   # Private functions
-
-  defp coin_type_count do
-    @denomination_at |> Map.keys() |> Enum.count()
-  end
 
   # There is only one (empty) way to make change for no money at all.
   defp count(0, _), do: 1
@@ -26,9 +17,12 @@ defmodule Change do
       count(amount - first_denomination(kinds_of_coins), kinds_of_coins)
   end
 
-  defp first_denomination(idx) do
-    @denomination_at[idx]
-  end
+  # Assume US coinage
+  defp first_denomination(1), do: 1
+  defp first_denomination(2), do: 5
+  defp first_denomination(3), do: 10
+  defp first_denomination(4), do: 25
+  defp first_denomination(5), do: 50
 end
 
 IO.puts(Change.count(100))
