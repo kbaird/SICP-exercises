@@ -9,7 +9,8 @@ fun sqrt(x) =
         fun square(x)            = x * x
         val tolerance            = 0.001
         fun average(x, y)        = (x + y) / 2.0
-        fun goodEnough(guess, x) = abs(square(guess) - x) < tolerance
+        fun distance(guess, x)   = abs(square(guess) - x)
+        fun goodEnough(guess, x) = distance(guess, x) < tolerance
         fun improve(guess, x)    = average(guess, (x/guess))
         fun sqrt(guess, x)       =
             case goodEnough(guess, x) of
