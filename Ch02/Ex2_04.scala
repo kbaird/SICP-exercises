@@ -7,13 +7,13 @@
   */
 
 /* Element */
-type E       = Any
-type PairToE = (E,E)   => E
-type Storage = PairToE => E
+type Element       = Any
+type PairToElement = (Element,Element) => Element
+type Storage       = PairToElement => Element
 
-def cons(x: E, y: E): Storage = { (f: PairToE) => f(x, y) }
-def car(f: Storage): E        = { f((p, q) => p) }
-def cdr(f: Storage): E        = { f((p, q) => q) }
+def cons(x: Element, y: Element): Storage = { (f: PairToElement) => f(x, y) }
+def car(f: Storage): Element              = { f((p, q) => p) }
+def cdr(f: Storage): Element              = { f((p, q) => q) }
 
 def output() = {
   val pair = cons(1.0, 'x')
