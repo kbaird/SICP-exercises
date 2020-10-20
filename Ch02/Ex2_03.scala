@@ -13,11 +13,11 @@ case class Point(x: Double, y: Double) {
 case class Rectangle(ul: Point, ur: Point, ll: Point, lr: Point) {
   override def toString(): String = "(" + ul + ", " + ur + ", " + ll + ", " + lr + ")";
 
-  def area:      Double = { _top * _side }
-  def perimeter: Double = { (_top + _side) * 2.0 }
+  def area:      Double = { _height * _width }
+  def perimeter: Double = { (_height + _width) * 2.0 }
 
-  private def _side: Double = { _distance(ul, ur) }
-  private def _top:  Double = { _distance(ur, lr) }
+  private def _width:  Double = { _distance(ul, ur) }
+  private def _height: Double = { _distance(ur, lr) }
   private def _distance(pt1: Point, pt2: Point): Double = {
     val square   = (x: Double) => x * x
     val xDiff    = (pt1: Point, pt2: Point) => (pt2.x - pt1.x)
