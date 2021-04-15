@@ -4,7 +4,7 @@ SICP in Standard ML:
   Count the number of ways to make change
 *)
 
-(* Assume US coinage (five types of coins), and call cc() function. *)
+(* Assume US coinage (five types of coins), and call countChange() function. *)
 fun countChange amount =
     let
         fun firstDenomination(kinds) = (* Define the coinage set as a hidden function. *)
