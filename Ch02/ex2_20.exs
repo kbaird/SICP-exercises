@@ -2,7 +2,7 @@
 
 defmodule Parity do
   def same([hd | tl]) do
-    [hd] ++ Enum.filter(tl, get_predicate(hd))
+    [hd | Enum.filter(tl, get_predicate(hd))]
   end
 
   # Private functions

@@ -10,9 +10,10 @@ defmodule Interval do
   end
 
   def div(i1, i2) do
-    case spans_zero?(i1) do
-      true -> throw({:badarg, "Can't divide when spanning zero."})
-      false -> mult(i1, recip(i2))
+    if spans_zero?(i1) do
+      throw({:badarg, "Can't divide when spanning zero."})
+    else
+      mult(i1, recip(i2))
     end
   end
 

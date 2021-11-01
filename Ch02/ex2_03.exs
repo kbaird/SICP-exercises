@@ -1,7 +1,7 @@
 # SICP in Elixir: Exercise 2.3 - Represent rectangle on a plane
 
 defmodule Point do
-  defstruct x: nil, y: nil
+  defstruct ~w[x y]a
   def new(x, y), do: %Point{x: x, y: y}
 
   def distance(pt1, pt2) do
@@ -21,7 +21,7 @@ defmodule Point do
 end
 
 defmodule Rectangle do
-  defstruct ul: nil, ur: nil, ll: nil, lr: nil
+  defstruct ~w[ul ur ll lr]a
 
   def new(%Point{x: x1, y: y1}, %Point{x: x2, y: y2}, %Point{x: x3, y: y3}, %Point{x: x4, y: y4}) do
     %Rectangle{
