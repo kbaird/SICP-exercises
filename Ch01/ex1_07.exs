@@ -6,9 +6,10 @@ defmodule Ex1_07 do
 
   # Private functions
   defp sqrt(guess, x) do
-    case good_enough(guess, x) do
-      true -> guess
-      false -> sqrt(improve(guess, x), x)
+    if good_enough?(guess, x) do
+      guess
+    else
+       sqrt(improve(guess, x), x)
     end
   end
 
@@ -16,7 +17,7 @@ defmodule Ex1_07 do
     (x + y) / 2.0
   end
 
-  defp good_enough(guess, x) do
+  defp good_enough?(guess, x) do
     abs(square(guess) - x) < tolerance(x)
   end
 
