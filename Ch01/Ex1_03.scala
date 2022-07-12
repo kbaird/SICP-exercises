@@ -9,11 +9,11 @@
 
 def sumSquares2Largest(a: Int, b: Int, c: Int) = {
   def square(x: Int) = { x*x }
-  var args           = Array(a, b, c)
-  var lowest         = args.min
-  var lowestSquare   = square(lowest)
-  var squaresL       = args.map(square)
-  var sums           = squaresL.sum
+  val args           = Array(a, b, c)
+  val lowest         = args.min
+  val lowestSquare   = square(lowest)
+  val squaresL       = args.map(square)
+  val sums           = squaresL.sum
   sums - lowestSquare
 }
 

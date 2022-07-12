@@ -8,7 +8,7 @@
   */
 
 def aPlusAbsB(a: Int, b: Int) = {
-  var op = (b > 0) match {
+  val op = (b > 0) match {
     case true  => (x: Int, y: Int) => x + y
     case false => (x: Int, y: Int) => x - y
   }
