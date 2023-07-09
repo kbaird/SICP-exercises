@@ -13,10 +13,11 @@ module Count_Change (countChange) where
 countChange :: Int -> Int
 countChange = cc 5
   where
+    zero x = x == 0
     cc kindsOfCoins amt
-      | amt == 0          = 1
-      | amt <  0          = 0
-      | kindsOfCoins == 0 = 0
+      | zero amt          = 1
+      | amt < 0           = 0
+      | zero kindsOfCoins = 0
       | otherwise         = cc (kindsOfCoins-1) amt + cc kindsOfCoins newAmt
         where
           firstDenomination 1 = 1
