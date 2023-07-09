@@ -7,13 +7,13 @@
  -
  -}
 
-zero = \f -> (\x -> x)
-add1 = \n -> (\x -> ())
-one  = \f -> (\x -> (f x))
-two  = \f -> (\x -> (f (f x)))
+zero   = const id
+add1 n = const ()
+one    = id
+two f  = f . f
 
 churchEncode n =
-  \f -> (\x -> innerEncode f n x)
+  (`innerEncode` n)
   where
     innerEncode f n x
       | n == 0    = x

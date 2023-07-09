@@ -15,7 +15,7 @@ cons :: E -> E -> Storage
 cons x y f = f x y
 
 car :: Storage -> E
-car f = f (\x y -> x)
+car f = f const
 
 cdr :: Storage -> E
 cdr f = f (\x y -> y)

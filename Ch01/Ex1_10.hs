@@ -16,8 +16,8 @@ ackermann x y
   | y == 1 = 2
   | otherwise = ackermann (x-1) (ackermann x (y-1))
 
-f n = ackermann 0 n -- x * 2
-g n = ackermann 1 n -- 2 ** x if x > 0; 0 if x == 0; error if x < 0
-h n = ackermann 2 n -- [0 2 4 16 65536] read at index x if 0 <= x <= 4; error otherwise
+f   = ackermann 0 -- x * 2
+g   = ackermann 1 -- 2 ** x if x > 0; 0 if x == 0; error if x < 0
+h   = ackermann 2 -- [0 2 4 16 65536] read at index x if 0 <= x <= 4; error otherwise
 k n = 5 * n * n     -- 5 n squared
 

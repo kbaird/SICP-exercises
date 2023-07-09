@@ -36,8 +36,8 @@ addInterval i1 i2 = toInterval (newS, newE)
 divInterval :: Interval -> Interval -> Interval
 divInterval i1 i2 = multInterval i1 recipInterval
   where
-    newS = (1.0 / startInterval i2)
-    newE = (1.0 / endInterval i2)
+    newS = 1.0 / startInterval i2
+    newE = 1.0 / endInterval i2
     recipInterval = toInterval (newS, newE)
 
 multInterval i1 i2 = toInterval (newS, newE)

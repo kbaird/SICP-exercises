@@ -14,8 +14,8 @@ car :: Integral a => a -> a
 car z = innerCar z 0
   where
     innerCar a b
-      | mod a 2 == 0 = innerCar (div a 2) (b + 1)
-      | otherwise    = b
+      | even a    = innerCar (div a 2) (b + 1)
+      | otherwise = b
 
 cdr :: Integral a => a -> a
 cdr z = innerCdr z 0

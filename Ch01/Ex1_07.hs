@@ -17,7 +17,7 @@ improve guess x = (guess + (x/guess)) / 2.0
 
 goodEnough :: Float -> Float -> Bool
 goodEnough guess x =
-  (abs ((square guess) - x)) < tolerance guess
+  abs (square guess - x) < tolerance guess
 
 square :: Float -> Float
 square x = x * x

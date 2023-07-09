@@ -17,4 +17,4 @@ sumSquares2Largest a b c = sums - lowestSquare
     lowest       = minimum argsL
     lowestSquare = square lowest
     squaresL     = map square argsL
-    sums         = foldr (+) 0 squaresL
+    sums         = sum squaresL

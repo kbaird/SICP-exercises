@@ -23,6 +23,6 @@ pascalsTriangle rowNum
 sumPairs :: [Int] -> [Int]
 sumPairs []       = []
 sumPairs [n]      = [n]
-sumPairs (x:y:[]) = [x+y]
-sumPairs (x:y:zs) = [x+y] ++ sumPairs (y:zs)
+sumPairs [x, y]   = [x+y]
+sumPairs (x:y:zs) = (x+y) : sumPairs (y:zs)
 
